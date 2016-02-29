@@ -1,0 +1,34 @@
+.SignupPage .body .form {
+  width: 500px;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-justify-content: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+.SignupPage .body .form .header {
+  margin: 5rem;
+}
+.SignupPage .body .form .form-line {
+  width: 300px;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-justify-content: space-between;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  margin: 0.5rem;
+}
+.SignupPage .body .form .submit {
+  margin: 1rem;
+}
+.SignupPage .body .form .error {
+  color: #d3003e;
+}

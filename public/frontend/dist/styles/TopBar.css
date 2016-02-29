@@ -1,0 +1,45 @@
+.TopBar {
+  background-color: #d6DFE2;
+  height: 8rem;
+  width: 100%;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-justify-content: space-around;
+      -ms-flex-pack: distribute;
+          justify-content: space-around;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+.TopBar .logo {
+  padding: 0.5rem;
+}
+.TopBar .logo .logo-mount {
+  height: 7rem;
+  width: 7rem;
+  background-image: url("../images/logo.png");
+  background-size: contain;
+  background-position: center center;
+  background-repeat: no-repeat;
+}
+.TopBar .user-action {
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  font-size: 2rem;
+  -webkit-justify-content: space-between;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+.TopBar .user-action .signup, .TopBar .user-action .login, .TopBar .user-action .button {
+  cursor: pointer;
+  text-decoration: none;
+  padding: 10px;
+  border-radius: 25px;
+  margin: 0.5rem;
+}
+.TopBar .user-action .signup:hover, .TopBar .user-action .login:hover, .TopBar .user-action .button:hover {
+  font-weight: bold;
+  background-color: #FEFAF6;
+}
