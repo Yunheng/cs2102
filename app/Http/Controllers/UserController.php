@@ -28,10 +28,28 @@ class UserController extends Controller
     }
 
     public function update(Request $request, $user) {
-      $results = DB::update("UPDATE \"user\" SET address = :address, avatar = :avatar, email = :email", [
+      $results = DB::update("UPDATE \"user\" SET address = :address, avatar = :avatar, email = :email WHERE username = :username", [
           'address'   => $request->input('address'),
           'avatar'    => $request->input('avatar'),
           'email'     => $request->input('email'),
+          'username'  => $user
+      ]);
+      return response()->json($results);
+    }
+
+    public function login(Request $request) {
+      $results = DB::select("SELECT * FROM \"user\" WHERE username = :username AND password = :password", [
+          'username' => $request->input('username'),
+          'password' => $request->input('password')
+      ]);
+      return response()->json($results);
+    }
+
+    public function changePassword(Request $request) {
+      $results = DB::update("UPDATE \"user\" SET password = :password WHERE username = :username AND password = :oldPassword", [
+          'password'     => $request->input('password'),
+          'oldPassword'  => $request->input('oldPassword'),
+          'username'     => $request->input('username'),
       ]);
       return response()->json($results);
     }
