@@ -35,4 +35,12 @@ class UserController extends Controller
       ]);
       return response()->json($results);
     }
+
+    public function login(Request $request) {
+      $results = DB::select("SELECT * FROM \"user\" WHERE username = :username AND password = :password", [
+          'username' => $request->input('username'),
+          'password' => $request->input('password')
+      ]);
+      return response()->json($results);
+    }
 }

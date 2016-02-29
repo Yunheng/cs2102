@@ -33,4 +33,6 @@ Route::group(['middleware' => ['web']], function () {
 Route::group(['prefix' => 'api'], function () {
     Route::resource('user', 'UserController',
       ['only' => ['create', 'show', 'update']]);
+
+  Route::post('/user/login', 'UserController@login');
 });
