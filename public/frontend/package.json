@@ -2,6 +2,9 @@
   "name": "backmeup",
   "version": "0.0.0",
   "dependencies": {
+    "datatables.net": "^1.10.11",
+    "datatables.net-dt": "^1.10.11",
+    "jquery": "^2.2.1",
     "reflux": "^0.3.0",
     "reflux-state-mixin": "^0.7.0"
   },

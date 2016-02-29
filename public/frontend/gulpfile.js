@@ -88,7 +88,7 @@ gulp.task('html', function() {
 
 // Images
 gulp.task('images', function() {
-    return gulp.src('app/images/**/*')
+    return gulp.src('app/images/*')
         .pipe($.cache($.imagemin({
             optimizationLevel: 3,
             progressive: true,
@@ -187,7 +187,7 @@ gulp.task('watch', ['html', 'fonts', 'bundle'], function() {
     
 
     // Watch image files
-    gulp.watch('app/images/**/*', reload);
+    gulp.watch('app/images/**', reload);
 });
 
 // Build
