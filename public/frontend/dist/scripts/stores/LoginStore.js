@@ -44,7 +44,7 @@ var LoginStore = reflux.createStore({
   signupUser(user, password, email, file, address){
     console.log(user, password, email, file, address);
     var form_data = new FormData();
-    form_data.append('user', user);
+    form_data.append('username', user);
     form_data.append('password', password);
     form_data.append('address', address);
     form_data.append('avatar', file);
@@ -53,13 +53,7 @@ var LoginStore = reflux.createStore({
       type: 'POST',
       url: '/api/user',
       dataType: 'json',
-      data: {
-        user: user,
-        password: password,
-        address: address,
-        email: email,
-        avatar: file
-      },
+      data: form_data,
       contentType: false,
       processData: false
     }).done(function(data){
