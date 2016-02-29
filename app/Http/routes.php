@@ -36,4 +36,5 @@ Route::group(['prefix' => 'api'], function () {
 
   Route::post('/user/login', 'UserController@login');
   Route::post('/user/password', 'UserController@changePassword');
+  Route::get('/users', 'UserController@users');
 });

@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
+use DB;
 
 class UserController extends Controller
 {
@@ -32,6 +33,16 @@ class UserController extends Controller
       $results = DB::select("SELECT * FROM \"user\" WHERE username = :username", [
           'username' => $user,
       ]);
+      return response()->json($results);
+    }
+
+
+    /**
+     * URL route for fetching a user
+     * GET /api/user/{username}
+     */
+    public function users() {
+      $results = DB::select("SELECT * FROM \"user\"");
       return response()->json($results);
     }
 
