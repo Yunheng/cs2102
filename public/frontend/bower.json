@@ -1,21 +1,9 @@
 {
-  "name": "frontend",
-  "version": "0.0.0",
-  "authors": [
-    "Jane Doe"
-  ],
-  "moduleType": [
-    "node"
-  ],
-  "license": "MIT",
-  "ignore": [
-    "**/.*",
-    "node_modules",
-    "app/vendor",
-    "test",
-    "tests"
-  ],
+  "name": "backmeup",
+  "version": "0.0.1",
   "dependencies": {
-    "modernizr": "~2.8.3"
+    "jquery": "~2.1.1",
+    "bootstrap-sass-official": ">=3.3.0",
+    "modernizr": "^2.8.3"
   }
 }

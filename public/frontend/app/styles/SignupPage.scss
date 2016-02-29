@@ -1,0 +1,25 @@
+.SignupPage{
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+
+  .body{
+    .form{
+      width: 500px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      .form-line{
+        width: 300px;
+        display: flex;
+        justify-content: space-between;
+        margin: 0.5rem;
+      }
+      .submit{
+        margin: 1rem;
+      }
+    }
+  }
+}

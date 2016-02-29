@@ -1,5 +1,10 @@
 $palette: (
-grey1: #bcbcbc
+  beige1: #FEFAF6,
+  pink1: #FFD3E0,
+  blue1: #D1E8EE,
+  grey1: #d6DFE2
 );
 
 $TopBarBG: map_get($palette, grey1);
+
+$button-hover: map_get($palette, beige1);

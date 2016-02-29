@@ -18,9 +18,13 @@ var LoginStore = reflux.createStore({
     this.setState({user: localStorage.userId});
   },
 
-  loginUser(user){
+  loginUser(user, password){
+    //check with db
     this.setState({userId: user});
     localStorage.userId = user;
+  },
+  signupUser(user, password, email, address){
+
   }
 });
 
