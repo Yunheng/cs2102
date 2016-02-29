@@ -6,5 +6,5 @@ $palette: (
 );
 
 $TopBarBG: map_get($palette, grey1);
-
 $button-hover: map_get($palette, beige1);
+$error: darken(map_get($palette, pink1), 50%);

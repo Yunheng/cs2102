@@ -7,10 +7,16 @@ var LoginStore = reflux.createStore({
   listenables: action,
 
   getInitialState(){
-    if(localStorage.userId) {
-      return {userId: localStorage.userId};
-    }else{
-      return {userId: ''}
+    if (localStorage.userId) {
+      return {
+        userId: localStorage.userId,
+        loginError: ''
+      };
+    } else {
+      return {
+        userId: '',
+        loginError: ''
+      }
     }
   },
 
@@ -24,7 +30,7 @@ var LoginStore = reflux.createStore({
     localStorage.userId = user;
   },
   signupUser(user, password, email, address){
-
+    //check with db
   }
 });
 

@@ -1,6 +1,12 @@
 var React = require('react');
+var reflux = require('reflux');
+var StateMixin = require('reflux-state-mixin')(reflux);
+import LoginStore from '../stores/LoginStore';
 import actions from '../actions/LoginAction';
+
+
 var SignupPage = React.createClass({
+  mixins: [StateMixin.connect(LoginStore)],
 
   render: function() {
     var isLogin = this.props.state === 'login';
@@ -8,7 +14,7 @@ var SignupPage = React.createClass({
       <div className="SignupPage">
         <div className="body">
           <div className="form">
-            <h2>{isLogin ? 'Login below' : 'Sign up below'}</h2>
+            <h2 className="header">{isLogin ? 'Login below' : 'Sign up below'}</h2>
             <div className="form-line">
               <span className="line-text">Username:</span>
               <input type="text" id="username"/>
@@ -30,7 +36,7 @@ var SignupPage = React.createClass({
               </div>
             }
             <button className="submit" onClick={this.handleClick.bind(this, isLogin)}>{isLogin ? 'Login' : 'Signup'}</button>
-
+            {this.state && this.state.loginError ? <div className="error">{this.state.loginError}</div> : null}
           </div>
         </div>
       </div>

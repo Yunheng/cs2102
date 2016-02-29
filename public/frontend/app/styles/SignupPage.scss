@@ -1,3 +1,5 @@
+@import '_colors';
+
 .SignupPage{
   height: 100%;
   width: 100%;
@@ -11,6 +13,9 @@
       flex-direction: column;
       justify-content: center;
       align-items: center;
+      .header{
+        margin: 5rem;
+      }
       .form-line{
         width: 300px;
         display: flex;
@@ -19,6 +24,9 @@
       }
       .submit{
         margin: 1rem;
+      }
+      .error{
+        color: $error;
       }
     }
   }
