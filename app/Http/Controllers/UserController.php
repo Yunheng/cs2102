@@ -28,10 +28,11 @@ class UserController extends Controller
     }
 
     public function update(Request $request, $user) {
-      $results = DB::update("UPDATE \"user\" SET address = :address, avatar = :avatar, email = :email", [
+      $results = DB::update("UPDATE \"user\" SET address = :address, avatar = :avatar, email = :email WHERE username = :username", [
           'address'   => $request->input('address'),
           'avatar'    => $request->input('avatar'),
           'email'     => $request->input('email'),
+          'username'  => $user
       ]);
       return response()->json($results);
     }
