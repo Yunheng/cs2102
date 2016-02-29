@@ -11,7 +11,7 @@ var SignupPage = React.createClass({
   render: function() {
     var isLogin = this.props.state === 'login';
     return (
-      <div className="SignupPage">
+      <div className="SignupPage Page">
         <div className="body">
           <div className="form">
             <h2 className="header">{isLogin ? 'Login below' : 'Sign up below'}</h2>
@@ -35,6 +35,12 @@ var SignupPage = React.createClass({
                 <input type="address" id="address"/>
               </div>
             }
+            {isLogin ? null :
+              <div className="form-line">
+                <span className="line-text">choose image:</span>
+                <input type="file" id="file"/>
+              </div>
+            }
             <button className="submit" onClick={this.handleClick.bind(this, isLogin)}>{isLogin ? 'Login' : 'Signup'}</button>
             {this.state && this.state.loginError ? <div className="error">{this.state.loginError}</div> : null}
           </div>
@@ -43,7 +49,8 @@ var SignupPage = React.createClass({
     );
   },
 
-  handleClick: function(isLogin){
+  handleClick: function(isLogin, e){
+  e.preventDefault();
     if(isLogin){
       actions.checkLogin(
         document.getElementById('username').value,
@@ -54,6 +61,7 @@ var SignupPage = React.createClass({
         document.getElementById('username').value,
         document.getElementById('password').value,
         document.getElementById('email').value,
+        $('#file').prop('files')[0],
         document.getElementById('address').value
       );
     }

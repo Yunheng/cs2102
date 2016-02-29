@@ -1,10 +1,11 @@
 var reflux = require('Reflux');
 var StateMixin = require('reflux-state-mixin')(reflux);
-import action from '../actions/AppStateAction';
+import AppActions from '../actions/AppStateAction';
+//import LoginActions from '../actions/LoginAction';
 
 var AppStateStore = reflux.createStore({
   mixins: [StateMixin],
-  listenables: action,
+  listenables: AppActions,
   getInitialState() {
     return ({
       currentPage: 'home'
@@ -13,13 +14,23 @@ var AppStateStore = reflux.createStore({
   getSignupPage(){
     console.log('setState');
     this.setState({
-      currentPage: 'userSignup'
+      currentPage: 'UserSignup'
     });
   },
   getLoginPage(){
     this.setState({
-      currentPage: 'userLogin'
+      currentPage: 'UserLogin'
     });
+  },
+  getHomePage(){
+    this.setState({
+      currentPage: 'home'
+    })
+  },
+  getUserManagement(){
+    this.setState({
+      currentPage: 'UserManagement'
+    })
   }
 
 });

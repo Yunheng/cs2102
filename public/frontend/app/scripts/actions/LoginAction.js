@@ -3,7 +3,8 @@ var reflux = require('Reflux');
 var TopBarActions = reflux.createActions([
   'checkLogin',
   'loginUser',
-  'signupUser'
+  'signupUser',
+  'userLogout'
 ]);
 
 module.exports = TopBarActions;

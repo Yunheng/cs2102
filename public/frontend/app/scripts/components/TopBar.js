@@ -1,7 +1,8 @@
 var React = require('react');
 var StateMixin = require('reflux-state-mixin');
 var LoginStore = require('../stores/LoginStore');
-var actions = require('../actions/AppStateAction');
+var AppActions = require('../actions/AppStateAction');
+var LoginActions = require('../actions/LoginAction');
 var TopBar = React.createClass({
   mixins: [StateMixin.connect(LoginStore)],
   render: function() {
@@ -12,24 +13,21 @@ var TopBar = React.createClass({
         </div>
         {!this.state.userId ?
         <div className="user-action">
-          <div className="signup" onClick={this.handleClick.bind(this, 'signup')}>Signup</div>
-          <div className="login" onClick={this.handleClick.bind(this, 'login')}>Login</div>
+          <div className="signup" onClick={AppActions.getSignupPage}>Signup</div>
+          <div className="login" onClick={AppActions.getLoginPage}>Login</div>
         </div>
           :
         <div className="user-profile">
           <div className="username">Hello, {this.state.userId}!</div>
+          <div className="logout button" onClick={this.userLogout}>Logout</div>
+          {this.state.userRole === 'admin' ?
+            <div className="manage-users button" onClick={AppActions.getUserManagement}>Manage Users</div>
+            : null}
+
         </div>
         }
       </div>
     );
-  },
-  handleClick(action){
-    if(action === 'signup'){
-      console.log('signup');
-      actions.getSignupPage();
-    }else{
-      actions.getLoginPage();
-    }
   }
 });
 

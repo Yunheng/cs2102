@@ -4,15 +4,18 @@ var React = window.React = require('react'),
     mountNode = document.getElementById("content");
 var reflux = require('reflux');
 var StateMixin = require('reflux-state-mixin')(reflux);
+import actions from './actions/AppStateAction';
 import TopBar from './components/TopBar.js';
 import AppStateStore from './stores/AppStateStore.js';
 import SignupPage from './components/SignupPage.js';
+import UserManagement from './components/UserManagementPage';
 var App = React.createClass({
   mixins: [StateMixin.connect(AppStateStore)],
   render: function() {
     return (
       <div id="app">
         <TopBar/>
+        <button onClick={actions.getUserManagement}>User Management</button>
         {this.mountNode()}
       </div>
     );
@@ -20,8 +23,9 @@ var App = React.createClass({
   mountNode(){
     switch(this.state.currentPage){
       case 'home': return <div className="home">homepage</div>;
-      case 'userSignup': return <SignupPage state="signup"/>;
-      case 'userLogin': return <SignupPage state="login"/>;
+      case 'UserSignup': return <SignupPage state="signup"/>;
+      case 'UserLogin': return <SignupPage state="login"/>;
+      case 'UserManagement': return <UserManagement />;
       default: return <div className="error">Oops, something went wrong!</div>;
     }
   }
