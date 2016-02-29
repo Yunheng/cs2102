@@ -44,4 +44,13 @@ class UserController extends Controller
       ]);
       return response()->json($results);
     }
+
+    public function changePassword(Request $request) {
+      $results = DB::update("UPDATE \"user\" SET password = :password WHERE username = :username AND password = :oldPassword", [
+          'password'     => $request->input('password'),
+          'oldPassword'  => $request->input('oldPassword'),
+          'username'     => $request->input('username'),
+      ]);
+      return response()->json($results);
+    }
 }

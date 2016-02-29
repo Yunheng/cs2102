@@ -35,4 +35,5 @@ Route::group(['prefix' => 'api'], function () {
       ['only' => ['create', 'show', 'update']]);
 
   Route::post('/user/login', 'UserController@login');
+  Route::post('/user/password', 'UserController@changePassword');
 });
