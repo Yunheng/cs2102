@@ -11,6 +11,7 @@
         <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
         <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,600,700,800,300italic,400italic,600italic,700italic,800italic' rel='stylesheet' type='text/css'>
         <link rel="stylesheet" href="frontend/dist/styles/main.css">
+        <link rel="stylesheet" href="https://cdn.datatables.net/1.10.11/css/jquery.dataTables.min.css">
         
         <!-- build:js scripts/vendor/modernizr.js -->
         <script src="frontend/dist/bower_components/modernizr/modernizr.js"></script>
@@ -29,8 +30,7 @@
 
         <!-- build:js scripts/vendor.js -->
         <!-- bower:js -->
-        <script src="frontend/dist/bower_components/jquery/dist/jquery.js"></script>
-        
+        <script src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
         <script src="frontend/dist/bower_components/bootstrap-sass-official/assets/javascripts/bootstrap.min.js"></script>
         
         <!-- endbower -->

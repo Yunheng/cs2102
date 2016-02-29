@@ -15,14 +15,13 @@ var App = React.createClass({
     return (
       <div id="app">
         <TopBar/>
-        <button onClick={actions.getUserManagement}>User Management</button>
         {this.mountNode()}
       </div>
     );
   },
   mountNode(){
     switch(this.state.currentPage){
-      case 'home': return <div className="home">homepage</div>;
+      case 'home': return <div className="home Page"><h2>homepage</h2></div>;
       case 'UserSignup': return <SignupPage state="signup"/>;
       case 'UserLogin': return <SignupPage state="login"/>;
       case 'UserManagement': return <UserManagement />;

@@ -23,7 +23,7 @@
   background-position: center center;
   background-repeat: no-repeat;
 }
-.TopBar .user-action {
+.TopBar .user-action, .TopBar .manager-user, .TopBar .user-profile {
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
@@ -32,14 +32,32 @@
       -ms-flex-pack: justify;
           justify-content: space-between;
 }
-.TopBar .user-action .signup, .TopBar .user-action .login, .TopBar .user-action .button {
+.TopBar .user-action .signup, .TopBar .user-action .login, .TopBar .user-action .button, .TopBar .manager-user .signup, .TopBar .manager-user .login, .TopBar .manager-user .button, .TopBar .user-profile .signup, .TopBar .user-profile .login, .TopBar .user-profile .button {
   cursor: pointer;
   text-decoration: none;
   padding: 10px;
   border-radius: 25px;
   margin: 0.5rem;
 }
-.TopBar .user-action .signup:hover, .TopBar .user-action .login:hover, .TopBar .user-action .button:hover {
+.TopBar .user-action .signup:hover, .TopBar .user-action .login:hover, .TopBar .user-action .button:hover, .TopBar .manager-user .signup:hover, .TopBar .manager-user .login:hover, .TopBar .manager-user .button:hover, .TopBar .user-profile .signup:hover, .TopBar .user-profile .login:hover, .TopBar .user-profile .button:hover {
   font-weight: bold;
   background-color: #FEFAF6;
+}
+.TopBar .user-action .signup.logout, .TopBar .user-action .login.logout, .TopBar .user-action .button.logout, .TopBar .manager-user .signup.logout, .TopBar .manager-user .login.logout, .TopBar .manager-user .button.logout, .TopBar .user-profile .signup.logout, .TopBar .user-profile .login.logout, .TopBar .user-profile .button.logout {
+  font-size: 1.5rem;
+}
+.TopBar .user-action .signup.manage-users, .TopBar .user-action .login.manage-users, .TopBar .user-action .button.manage-users, .TopBar .manager-user .signup.manage-users, .TopBar .manager-user .login.manage-users, .TopBar .manager-user .button.manage-users, .TopBar .user-profile .signup.manage-users, .TopBar .user-profile .login.manage-users, .TopBar .user-profile .button.manage-users {
+  margin-left: 3rem;
+  font-size: 1.5rem;
+}
+.TopBar .user-action .username, .TopBar .manager-user .username, .TopBar .user-profile .username {
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+.TopBar .user-action .username .hello, .TopBar .manager-user .username .hello, .TopBar .user-profile .username .hello {
+  margin-right: 0.6rem;
 }

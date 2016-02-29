@@ -18,16 +18,17 @@ var TopBar = React.createClass({
         </div>
           :
         <div className="user-profile">
-          <div className="username">Hello, {this.state.userId}!</div>
+          <div className="username"><span className="hello">Hello</span> {this.state.userId}!</div>
+          <div className="manage-users button" onClick={AppActions.getUserManagement}>Manage Users</div>
           <div className="logout button" onClick={this.userLogout}>Logout</div>
-          {this.state.userRole === 'admin' ?
-            <div className="manage-users button" onClick={AppActions.getUserManagement}>Manage Users</div>
-            : null}
 
         </div>
         }
       </div>
     );
+  },
+  userLogout(){
+    LoginActions.userLogout();
   }
 });
 

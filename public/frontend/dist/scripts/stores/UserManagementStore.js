@@ -14,10 +14,15 @@ var UserManagementStore = reflux.createStore({
 
   getUserManagement(){
     console.log('get users');
-    $.get('/api/user/show', function(data, error){
+    $.get('/api/users')
+      .done(function(data){
       console.log(data);
-      console.log(error);
-    })
+        this.setState({users: data});
+    }.bind(this))
+      .fail(function(error){
+
+      }.bind(this)
+    );
   }
 });
 

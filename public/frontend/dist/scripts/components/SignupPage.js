@@ -52,7 +52,7 @@ var SignupPage = React.createClass({
   handleClick: function(isLogin, e){
   e.preventDefault();
     if(isLogin){
-      actions.checkLogin(
+      actions.loginUser(
         document.getElementById('username').value,
         document.getElementById('password').value
       );

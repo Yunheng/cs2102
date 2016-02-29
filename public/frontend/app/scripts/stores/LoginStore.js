@@ -31,15 +31,22 @@ var LoginStore = reflux.createStore({
   loginUser(user, password){
     $.ajax({
       type: 'POST',
-      url:'/api/login',
+      url:'/api/user/login',
       dataType: 'json',
       data:{
         user: user,
         password: password
       }
-    });
-    this.setState({userId: user});
-    localStorage.userId = user;
+    }).done(function(data){
+      this.setState({userId: user});
+      localStorage.userId = user;
+      AppActions.getHomePage();
+    }.bind(this)).fail(function(error){
+      this.setState({
+        loginError: 'Error occurred. Please try again.'
+      });
+      window.setTimeout(this.setState.bind(this, {loginError: ''}), 3000);
+    }.bind(this));
   },
   signupUser(user, password, email, file, address){
     console.log(user, password, email, file, address);
@@ -47,33 +54,26 @@ var LoginStore = reflux.createStore({
     form_data.append('username', user);
     form_data.append('password', password);
     form_data.append('address', address);
-    form_data.append('avatar', file);
+    form_data.append('avatar', '');
     form_data.append('email', email);
     $.ajax({
       type: 'POST',
       url: '/api/user',
-      dataType: 'json',
+      //dataType: 'json',
       data: form_data,
       contentType: false,
       processData: false
     }).done(function(data){
-      console.log(data);
-    }).fail(function(){
+      this.setState({
+        userId: user
+      });
+      AppActions.getHomePage();
+    }.bind(this)).fail(function(){
       this.setState({
         loginError: 'Error occurred. Please try again.'
       });
       window.setTimeout(this.setState.bind(this, {loginError: ''}), 3000);
     }.bind(this));
-    //$.ajax({
-    //  type: 'POST',
-    //  url: '/api/user/create',
-    //  dataType: 'json',
-    //  data: form_data,
-    //  contentType: false,
-    //  processData: false
-    //}).done(function(data){
-    //  console.log(data);
-    //})
   },
   userLogout(){
     delete localStorage.userId;

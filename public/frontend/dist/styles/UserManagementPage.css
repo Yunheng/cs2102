@@ -1,0 +1,16 @@
+.UserManagementPage {
+  -webkit-flex-direction: column;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+.UserManagementPage #table, .UserManagementPage td, .UserManagementPage th {
+  width: 60%;
+  border: 1px solid;
+}
+.UserManagementPage th, .UserManagementPage td {
+  padding: 0.5rem;
+}
+.UserManagementPage tbody th {
+  font-weight: normal;
+  text-align: left;
+}
