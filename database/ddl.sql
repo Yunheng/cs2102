@@ -18,7 +18,7 @@ CREATE TABLE Project_Reward(
 	PRIMARY KEY(name, project)
 );
 
-CREATE TABLE Member(
+CREATE TABLE "user" (
 	username VARCHAR(32) PRIMARY KEY,
 	password CHAR(40) NOT NULL,
 	last_login TIMESTAMP,
@@ -30,12 +30,12 @@ CREATE TABLE Member(
 
 CREATE TABLE Project_Owner(
 	role VARCHAR(32) NOT NULL,
-	member VARCHAR(32) REFERENCES Member(username),
-	project INTEGER REFERENCES Project(id)	
+	member VARCHAR(32) REFERENCES "user"(username),
+	project INTEGER REFERENCES Project(id)
 );
 
 CREATE TABLE Project_Backer(
-	member VARCHAR(32) REFERENCES Member(username),
+	member VARCHAR(32) REFERENCES "user"(username),
 	project INTEGER REFERENCES Project(id),
 	tier VARCHAR(64),
 	FOREIGN KEY (project, tier) REFERENCES Project_Reward(project, name)
@@ -51,7 +51,7 @@ CREATE TABLE Project_Comment(
 	id INTEGER PRIMARY KEY,
 	content TEXT NOT NULL,
 	posted TIMESTAMP,
-	member VARCHAR(32) REFERENCES Member(username),
+	member VARCHAR(32) REFERENCES "user"(username),
 	project INTEGER REFERENCES Project(id),
 	parent INTEGER NULL REFERENCES Project_Comment(id)
 );
@@ -61,7 +61,7 @@ CREATE TABLE Project_News(
 	title VARCHAR(64) NOT NULL,
 	content TEXT NOT NULL,
 	posted TIMESTAMP,
-	member VARCHAR(32) REFERENCES Member(username),
+	member VARCHAR(32) REFERENCES "user"(username),
 	project INTEGER REFERENCES Project(id)
 );
 
@@ -69,7 +69,7 @@ CREATE TABLE News_Comment(
 	id INTEGER PRIMARY KEY,
 	content TEXT NOT NULL,
 	posted TIMESTAMP,
-	member VARCHAR(32) REFERENCES Member(username),
+	member VARCHAR(32) REFERENCES "user"(username),
 	news INTEGER REFERENCES Project_News(id),
 	parent INTEGER NULL REFERENCES News_Comment(id)
 );
