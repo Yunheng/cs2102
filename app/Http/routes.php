@@ -32,7 +32,7 @@ Route::group(['middleware' => ['web']], function () {
 
 Route::group(['prefix' => 'api'], function () {
     Route::resource('user', 'UserController',
-      ['only' => ['create', 'show', 'update']]);
+      ['only' => ['store', 'show', 'update']]);
 
   Route::post('/user/login', 'UserController@login');
   Route::post('/user/password', 'UserController@changePassword');
