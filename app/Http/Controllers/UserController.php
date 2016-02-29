@@ -13,7 +13,7 @@ class UserController extends Controller
      * URL route for creating a new user
      * POST /api/user
      */
-    public function create(Request $request) {
+    public function store(Request $request) {
       $results = DB::insert("INSERT INTO \"user\" (username, password, registered_date, address, avatar, email) VALUES (:username, :password, NOW(), :address, :avatar, :email)", [
           'username'  => $request->input('username'),
           'password'  => $request->input('password'),
