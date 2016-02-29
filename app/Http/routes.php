@@ -12,7 +12,7 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('index');
 });
 
 /*
@@ -28,4 +28,9 @@ Route::get('/', function () {
 
 Route::group(['middleware' => ['web']], function () {
     //
+});
+
+Route::group(['prefix' => 'api'], function () {
+    Route::resource('user', 'UserController',
+      ['only' => ['create', 'show', 'update']]);
 });
