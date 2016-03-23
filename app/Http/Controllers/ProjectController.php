@@ -29,7 +29,7 @@ class ProjectController extends Controller
      * URL route for fetching a project
      * GET /api/project/{id}
      */
-    public function show(project) {
+    public function show($project) {
       $results = DB::select("SELECT * FROM \"project\" WHERE id = :project", [
           'project' => $project,
       ]);
@@ -45,4 +45,14 @@ class ProjectController extends Controller
       return response()->json($results);
     }
 
+    /**
+     * URL route for deleting an existing project
+     * DELETE /api/project/{project}
+     */
+    public function delete($project) {
+      $results = DB::update("DELETE FROM project WHERE id = :projectId", [
+          'projectId'   => $project
+      ]);
+      return response()->json($results);
+    }
 }
