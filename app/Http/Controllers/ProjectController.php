@@ -24,4 +24,16 @@ class ProjectController extends Controller
       ]);
       return response()->json($results);
     }
+
+    /**
+     * URL route for fetching a project
+     * GET /api/project/{id}
+     */
+    public function show(project) {
+      $results = DB::select("SELECT * FROM \"project\" WHERE id = :project", [
+          'project' => $project,
+      ]);
+      return response()->json($results);
+    }
+
 }
