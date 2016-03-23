@@ -50,7 +50,7 @@ class ProjectController extends Controller
      * DELETE /api/project/{project}
      */
     public function delete($project) {
-      $results = DB::update("DELETE FROM project WHERE id = :projectId", [
+      $results = DB::delete("DELETE FROM project WHERE id = :projectId", [
           'projectId'   => $project
       ]);
       return response()->json($results);
