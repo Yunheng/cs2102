@@ -12,7 +12,7 @@ var UserManagementStore = reflux.createStore({
     });
   },
 
-  getUserManagement(){
+  getUsers(){
     console.log('get users');
     $.get('/api/users')
       .done(function(data){

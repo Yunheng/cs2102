@@ -2,6 +2,7 @@ var reflux = require('Reflux');
 var StateMixin = require('reflux-state-mixin')(reflux);
 import AppActions from '../actions/AppStateAction';
 import LoginActions from '../actions/LoginAction';
+import ProjectAction from '../actions/ProjectAction';
 var $ = require('jquery');
 
 var LoginStore = reflux.createStore({

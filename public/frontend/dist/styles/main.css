@@ -7314,7 +7314,7 @@ button.close {
   font-weight: bold;
   background-color: #FEFAF6;
 }
-.TopBar .user-action .signup.logout, .TopBar .user-action .login.logout, .TopBar .user-action .button.logout, .TopBar .manager-user .signup.logout, .TopBar .manager-user .login.logout, .TopBar .manager-user .button.logout, .TopBar .user-profile .signup.logout, .TopBar .user-profile .login.logout, .TopBar .user-profile .button.logout {
+.TopBar .user-action .signup.logout, .TopBar .user-action .signup.projects, .TopBar .user-action .login.logout, .TopBar .user-action .login.projects, .TopBar .user-action .button.logout, .TopBar .user-action .button.projects, .TopBar .manager-user .signup.logout, .TopBar .manager-user .signup.projects, .TopBar .manager-user .login.logout, .TopBar .manager-user .login.projects, .TopBar .manager-user .button.logout, .TopBar .manager-user .button.projects, .TopBar .user-profile .signup.logout, .TopBar .user-profile .signup.projects, .TopBar .user-profile .login.logout, .TopBar .user-profile .login.projects, .TopBar .user-profile .button.logout, .TopBar .user-profile .button.projects {
   font-size: 1.5rem;
 }
 .TopBar .user-action .signup.manage-users, .TopBar .user-action .login.manage-users, .TopBar .user-action .button.manage-users, .TopBar .manager-user .signup.manage-users, .TopBar .manager-user .login.manage-users, .TopBar .manager-user .button.manage-users, .TopBar .user-profile .signup.manage-users, .TopBar .user-profile .login.manage-users, .TopBar .user-profile .button.manage-users {
@@ -7383,6 +7383,114 @@ button.close {
 .UserManagementPage tbody th {
   font-weight: normal;
   text-align: left;
+}
+
+.ProjectsPage {
+  height: 100%;
+  width: 100%;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-flex-direction: column;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  padding: 2rem;
+}
+.ProjectsPage .empty-project {
+  font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: 2rem;
+}
+.ProjectsPage .add-new-project .button {
+  padding: 1rem 2rem;
+  font-size: 1.5rem;
+  border-radius: 0.2rem;
+  border: 1px solid;
+  border-color: #633201;
+  background-color: #FECB98;
+}
+.ProjectsPage .add-new-project .button:hover {
+  cursor: pointer;
+  background-color: #F8A65A;
+}
+.ProjectsPage .add-new-project .new-project-page .title {
+  font-weight: bold;
+  font-size: 2rem;
+  text-align: center;
+}
+.ProjectsPage .add-new-project .new-project-page .form {
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 500px;
+}
+.ProjectsPage .add-new-project .new-project-page .form .form-line {
+  margin: 1.5rem 0;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  width: 100%;
+  -webkit-justify-content: space-between;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+.ProjectsPage .add-new-project .new-project-page .form .form-line input, .ProjectsPage .add-new-project .new-project-page .form .form-line textarea, .ProjectsPage .add-new-project .new-project-page .form .form-line .UserSelectBar {
+  width: 350px;
+}
+.ProjectsPage .add-new-project .new-project-page .cancel {
+  background-color: #d6DFE2;
+}
+.ProjectsPage .add-new-project .new-project-page .cancel:hover {
+  background-color: #7c99a3;
+}
+
+.OfflineSearchList {
+  position: relative;
+}
+.OfflineSearchList .result-list {
+  position: absolute;
+  left: 0;
+  right: 0;
+  border: 1px solid black;
+  padding: 0 0 0 0.5rem;
+  background-color: white;
+}
+.OfflineSearchList .result-list.close {
+  display: none;
+}
+.OfflineSearchList .result-list li {
+  list-style-type: none;
+  margin-bottom: 0.2rem;
+}
+.OfflineSearchList .result-list li:hover {
+  cursor: pointer;
+  background-color: #FECB98;
+}
+
+.UserSelectBar .user-line {
+  margin-bottom: 0.5rem;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-justify-content: space-between;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+.UserSelectBar .user-line .delete:hover {
+  cursor: pointer;
+}
+.UserSelectBar .add-user {
+  text-align: center;
+  width: 150px;
 }
 
 html {

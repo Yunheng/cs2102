@@ -1,8 +1,10 @@
 var React = require('react');
 var reflux = require('reflux');
 var StateMixin = require('reflux-state-mixin')(reflux);
+var $ = require('jquery');
 import LoginStore from '../stores/LoginStore';
 import actions from '../actions/LoginAction';
+import ProjectAction from '../actions/ProjectAction';
 
 
 var SignupPage = React.createClass({
@@ -53,16 +55,16 @@ var SignupPage = React.createClass({
   e.preventDefault();
     if(isLogin){
       actions.loginUser(
-        document.getElementById('username').value,
-        document.getElementById('password').value
+       $('#username').val(),
+       $('#password').val()
       );
     }else{
       actions.signupUser(
-        document.getElementById('username').value,
-        document.getElementById('password').value,
-        document.getElementById('email').value,
+       $('#username').val(),
+       $('#password').val(),
+       $('#email').val(),
         $('#file').prop('files')[0],
-        document.getElementById('address').value
+       $('#address').val()
       );
     }
   }

@@ -28,8 +28,15 @@ var AppStateStore = reflux.createStore({
     })
   },
   getUserManagement(){
+    AppActions.getUsers();
     this.setState({
       currentPage: 'UserManagement'
+    })
+  },
+  getProjectPage(){
+
+    this.setState({
+      currentPage: 'Projects'
     })
   }
 

@@ -1,0 +1,22 @@
+.OfflineSearchList {
+  position: relative;
+}
+.OfflineSearchList .result-list {
+  position: absolute;
+  left: 0;
+  right: 0;
+  border: 1px solid black;
+  padding: 0 0 0 0.5rem;
+  background-color: white;
+}
+.OfflineSearchList .result-list.close {
+  display: none;
+}
+.OfflineSearchList .result-list li {
+  list-style-type: none;
+  margin-bottom: 0.2rem;
+}
+.OfflineSearchList .result-list li:hover {
+  cursor: pointer;
+  background-color: #FECB98;
+}

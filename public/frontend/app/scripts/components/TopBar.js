@@ -20,6 +20,7 @@ var TopBar = React.createClass({
         <div className="user-profile">
           <div className="username"><span className="hello">Hello</span> {this.state.userId}!</div>
           <div className="manage-users button" onClick={AppActions.getUserManagement}>Manage Users</div>
+          <div className="projects button" onClick={AppActions.getProjectPage}>Projects</div>
           <div className="logout button" onClick={this.userLogout}>Logout</div>
 
         </div>

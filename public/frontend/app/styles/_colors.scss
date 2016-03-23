@@ -1,10 +1,18 @@
 $palette: (
-  beige1: #FEFAF6,
-  pink1: #FFD3E0,
-  blue1: #D1E8EE,
-  grey1: #d6DFE2
+        beige1: #FEFAF6,
+        pink1: #FFD3E0,
+        blue1: #D1E8EE,
+        grey1: #d6DFE2,
+        orange1: #FECB98,
+        orange2: #F8A65A
 );
 
 $TopBarBG: map_get($palette, grey1);
 $button-hover: map_get($palette, beige1);
 $error: darken(map_get($palette, pink1), 50%);
+
+$cancel-button: map_get($palette, grey1);
+$cancel-button-hover: darken($cancel-button, 30%);
+$action-button: map_get($palette, orange1);
+$action-button-hover: map_get($palette, orange2);
+

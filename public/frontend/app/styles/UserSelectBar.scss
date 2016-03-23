@@ -1,0 +1,16 @@
+.UserSelectBar{
+  .user-line{
+    margin-bottom: 0.5rem;
+    display: flex;
+    justify-content: space-between;
+    .delete{
+      &:hover{
+        cursor: pointer;
+      }
+    }
+  }
+  .add-user{
+    text-align: center;
+    width: 150px;
+  }
+}

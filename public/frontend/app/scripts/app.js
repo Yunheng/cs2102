@@ -9,6 +9,7 @@ import TopBar from './components/TopBar.js';
 import AppStateStore from './stores/AppStateStore.js';
 import SignupPage from './components/SignupPage.js';
 import UserManagement from './components/UserManagementPage';
+import ProjectsPage from './components/ProjectsPage';
 var App = React.createClass({
   mixins: [StateMixin.connect(AppStateStore)],
   render: function() {
@@ -20,11 +21,13 @@ var App = React.createClass({
     );
   },
   mountNode(){
+    console.log(this.state.currentPage);
     switch(this.state.currentPage){
       case 'home': return <div className="home Page"><h2>homepage</h2></div>;
       case 'UserSignup': return <SignupPage state="signup"/>;
       case 'UserLogin': return <SignupPage state="login"/>;
       case 'UserManagement': return <UserManagement />;
+      case 'Projects': return <ProjectsPage/>;
       default: return <div className="error">Oops, something went wrong!</div>;
     }
   }
