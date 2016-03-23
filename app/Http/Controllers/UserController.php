@@ -36,7 +36,6 @@ class UserController extends Controller
       return response()->json($results);
     }
 
-
     /**
      * URL route for fetching a user
      * GET /api/user/{username}

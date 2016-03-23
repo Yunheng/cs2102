@@ -36,4 +36,13 @@ class ProjectController extends Controller
       return response()->json($results);
     }
 
+    /**
+     * URL route for fetching all projects
+     * GET /api/projects
+     */
+    public function index() {
+      $results = DB::select("SELECT * FROM \"project\"");
+      return response()->json($results);
+    }
+
 }
