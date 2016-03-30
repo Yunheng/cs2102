@@ -39,8 +39,8 @@ var ViewProjectPage = React.createClass({
             <div className="project-title">{project.title}</div>
             <div className="project-details">
               <div className="project-owner">
-                Project by: {fakeData.owners.map(function(owner){
-                  return <span className="owner" key={owner}>{owner}</span>
+                Project by: {project.owners.map(function(owner){
+                  return <span className="owner" key={owner.member}>{owner.member}</span>
                 })}
               </div>
               <div className="project-location">

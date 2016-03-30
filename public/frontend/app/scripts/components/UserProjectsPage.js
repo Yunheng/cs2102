@@ -5,6 +5,8 @@ var LoginStore = require('../stores/LoginStore');
 var ProjectStore = require('../stores/ProjectStore');
 var ProjectAction = require('../actions/ProjectAction');
 var UserSelectBar = require('./UserSelectBar');
+var {countryCode} = require('../constants');
+var ViewProjectsList = require('./ViewProjectsList');
 
 var UserProjectsPage = React.createClass({
   mixins: [
@@ -36,22 +38,32 @@ var UserProjectsPage = React.createClass({
     })
   },
   createNewProject(){
-
+    console.log(this.state.selectedUsers);
     ProjectAction.addNewProject({
       title: $('#projtitle').val(),
       description: $('#projdescription').val(),
       country: $('#country').val(),
       city: $('#city').val(),
       category: $('#category').val(),
-      projectowners: this.state.selectedUsers
+      projectOwners: this.state.selectedUsers
     });
   },
   cancelCreateNew(){
     console.log('cancel');
     this.setState({newProject: false});
   },
+  renderCountryOptions(){
+    return countryCode.map(function(country){
+      return <option key={country} value={country}>{country}</option>
+    });
+  },
   renderProjects(){
-    return (<div className="projects">PROJECTS</div>);
+    return (
+      <div className="projects">
+        <div className="section-title">YOUR PROJECTS</div>
+        <ViewProjectsList list={this.state.userProjects}/>
+      </div>
+    );
   },
   renderNewProjectPage(){
     return (
@@ -68,7 +80,9 @@ var UserProjectsPage = React.createClass({
             </div>
             <div className="form-line">
               <span className="line-text">Country:</span>
-              <input type="text" id="country"/>
+              <select id="country">
+                {this.renderCountryOptions()}
+              </select>
             </div>
             <div className="form-line">
               <span className="line-text">City:</span>

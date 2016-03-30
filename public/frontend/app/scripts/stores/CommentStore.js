@@ -10,12 +10,16 @@ var CommentStore = reflux.createStore({
     return ({comments: []});
   },
   retrieveProjectComments(project){
-    this.setState({
-      comments: fakeData('comments')
+    $.ajax({
+      type: 'GET',
+      url: '/api/project/' + project.id + '/comment',
+      dataType: 'JSON'
+    }).done(function(data){
+      console.log('comment', data);
     });
   },
   addComment(comment){
-
+    console.log(comment);
   }
 });
 
