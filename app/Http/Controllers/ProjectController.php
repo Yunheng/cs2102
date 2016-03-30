@@ -15,14 +15,14 @@ class ProjectController extends Controller
      * POST /api/project
      */
     public function store(Request $request) {
-      $results = DB::insert("INSERT INTO \"project\" (title, description, country, city, category, date_created) VALUES (:title, :description, :country, :city, :category, NOW())", [
+      $results = DB::select("INSERT INTO \"project\" (title, description, country, city, category, date_created) VALUES (:title, :description, :country, :city, :category, NOW()) RETURNING id", [
           'title'        => $request->input('title'),
           'description'  => $request->input('description'),
           'country'      => $request->input('country'),
           'city'         => $request->input('city'),
           'category'     => $request->input('category'),
       ]);
-      return response()->json($results);
+      return response()->json($results[0]);
     }
 
     /**
@@ -38,7 +38,7 @@ class ProjectController extends Controller
 
     /**
      * URL route for fetching all projects
-     * GET /api/projects
+     * GET /api/project
      */
     public function index() {
       $results = DB::select("SELECT * FROM \"project\"");
