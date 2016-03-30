@@ -78,7 +78,8 @@ CREATE TABLE News_Comment(
 
 CREATE TABLE Transaction(
 	code CHAR(12) PRIMARY KEY,
-	type CHAR(6) CHECK(type = 'Credit' OR type = 'Debit')
+	type CHAR(6) CHECK(type = 'Credit' OR type = 'Debit'),
+	"user" VARCHAR(32) REFERENCES "user"(username)
 );
 
 CREATE TABLE Receipt(
