@@ -33,4 +33,15 @@ class ProjectCommentController extends Controller
       ]);
       return response()->json($results);
     }
+
+    /**
+     * URL route for deleting an existing project comment
+     * DELETE /api/project/{project}/comment/{commentId}
+     */
+    public function delete($project, $comment) {
+      $results = DB::delete("DELETE FROM \"project_comment\" WHERE id = :commentId", [
+          'commentId'   => $comment
+      ]);
+      return response()->json($results);
+    }
 }

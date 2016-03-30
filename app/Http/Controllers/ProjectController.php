@@ -38,7 +38,7 @@ class ProjectController extends Controller
 
     /**
      * URL route for fetching all projects
-     * GET /api/projects
+     * GET /api/project
      */
     public function index() {
       $results = DB::select("SELECT * FROM \"project\"");
