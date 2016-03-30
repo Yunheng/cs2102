@@ -7289,7 +7289,6 @@ button.close {
 .TopBar .logo .logo-mount {
   height: 7rem;
   width: 7rem;
-  background-image: url("../images/logo.png");
   background-size: contain;
   background-position: center center;
   background-repeat: no-repeat;
@@ -7491,6 +7490,140 @@ button.close {
 .UserSelectBar .add-user {
   text-align: center;
   width: 150px;
+}
+
+.ViewProjectsList {
+  height: 100%;
+  width: 960px;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-wrap: wrap;
+      -ms-flex-wrap: wrap;
+          flex-wrap: wrap;
+}
+.ViewProjectsList .project {
+  margin: 20px;
+  padding: 10px;
+  width: 200px;
+  height: 200px;
+  cursor: pointer;
+  border: solid 1px #d6DFE2;
+}
+.ViewProjectsList .project:hover {
+  background-color: #e5ebed;
+}
+.ViewProjectsList .project .title {
+  font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+}
+.ViewProjectsList .project .description {
+  max-height: 120px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.ViewProjectsList .project .place {
+  font-size: 1rem;
+  font-style: italic;
+}
+
+.HomePage {
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+.HomePage .welcome-bar {
+  height: 500px;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-justify-content: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-flex-direction: column;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+.HomePage .welcome-bar .welcome-message {
+  font-size: 6rem;
+  text-align: center;
+}
+.HomePage .welcome-bar .sub-message {
+  font-size: 4rem;
+  text-align: center;
+}
+.HomePage .projects {
+  border-top: solid 2px #d6DFE2;
+}
+.HomePage .projects .section-title {
+  margin-top: 1rem;
+  font-size: 5rem;
+  font-weight: bold;
+  text-align: center;
+}
+
+.ViewProjectPage {
+  padding: 10rem;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+}
+.ViewProjectPage .project-info {
+  font-size: 2rem;
+  padding-right: 1.5rem;
+  -webkit-flex-basis: 70%;
+      -ms-flex-preferred-size: 70%;
+          flex-basis: 70%;
+}
+.ViewProjectPage .project-info .project-title {
+  font-size: 8rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+}
+.ViewProjectPage .project-info .project-details {
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-justify-content: space-between;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  margin-bottom: 5rem;
+}
+.ViewProjectPage .project-info .project-owner {
+  font-size: 1.5rem;
+}
+.ViewProjectPage .project-info .project-owner .owner:not(:last-child) {
+  margin-right: 0.5rem;
+}
+.ViewProjectPage .project-info .project-owner .owner:not(:last-child):after {
+  content: ',';
+}
+.ViewProjectPage .project-info .project-location {
+  font-size: 1.5rem;
+}
+.ViewProjectPage .project-info .section-title {
+  font-size: 3.5rem;
+  font-weight: bold;
+}
+.ViewProjectPage .funding-options {
+  -webkit-flex-basis: 30%;
+      -ms-flex-preferred-size: 30%;
+          flex-basis: 30%;
+  padding-left: 1.5rem;
+  border-left: solid 1px #d6DFE2;
+  -webkit-flex-basis: 30%;
+      -ms-flex-preferred-size: 30%;
+          flex-basis: 30%;
 }
 
 html {

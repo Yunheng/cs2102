@@ -2,7 +2,9 @@ var reflux = require('Reflux');
 
 var ProjectAction = reflux.createActions([
   'addNewProject',
-  'retrieveUserProjects'
+  'retrieveUserProjects',
+  'retrieveProjects',
+  'viewProject'
 ]);
 
 

@@ -5,7 +5,8 @@ var LoginStore = require('../stores/LoginStore');
 var ProjectStore = require('../stores/ProjectStore');
 var ProjectAction = require('../actions/ProjectAction');
 var UserSelectBar = require('./UserSelectBar');
-var ProjectPage = React.createClass({
+
+var UserProjectsPage = React.createClass({
   mixins: [
     StateMixin.connect(LoginStore),
     StateMixin.connect(ProjectStore)
@@ -114,4 +115,4 @@ var ProjectPage = React.createClass({
 
 
 
-export default ProjectPage;
+export default UserProjectsPage;

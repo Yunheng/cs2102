@@ -1,0 +1,35 @@
+.ViewProjectsList {
+  height: 100%;
+  width: 960px;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-wrap: wrap;
+      -ms-flex-wrap: wrap;
+          flex-wrap: wrap;
+}
+.ViewProjectsList .project {
+  margin: 20px;
+  padding: 10px;
+  width: 200px;
+  height: 200px;
+  cursor: pointer;
+  border: solid 1px #d6DFE2;
+}
+.ViewProjectsList .project:hover {
+  background-color: #e5ebed;
+}
+.ViewProjectsList .project .title {
+  font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+}
+.ViewProjectsList .project .description {
+  max-height: 120px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.ViewProjectsList .project .place {
+  font-size: 1rem;
+  font-style: italic;
+}

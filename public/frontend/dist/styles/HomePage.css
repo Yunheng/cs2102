@@ -1,0 +1,43 @@
+.HomePage {
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+.HomePage .welcome-bar {
+  height: 500px;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-justify-content: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-flex-direction: column;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+.HomePage .welcome-bar .welcome-message {
+  font-size: 6rem;
+  text-align: center;
+}
+.HomePage .welcome-bar .sub-message {
+  font-size: 4rem;
+  text-align: center;
+}
+.HomePage .projects {
+  border-top: solid 2px #d6DFE2;
+}
+.HomePage .projects .section-title {
+  margin-top: 1rem;
+  font-size: 5rem;
+  font-weight: bold;
+  text-align: center;
+}

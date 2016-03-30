@@ -1,0 +1,43 @@
+@import '_colors';
+.ViewProjectPage{
+  padding: 10rem;
+  display: flex;
+
+  .project-info{
+    font-size: 2rem;
+    padding-right: 1.5rem;
+    flex-basis: 70%;
+    .project-title{
+      font-size: 8rem;
+      font-weight: bold;
+      margin-bottom: 1rem;
+    }
+    .project-details{
+      display: flex;
+      justify-content:space-between;
+      margin-bottom: 5rem;
+    }
+    .project-owner{
+      font-size: 1.5rem;
+      .owner:not(:last-child){
+        &:after{
+          content: ',';
+        }
+        margin-right: 0.5rem;
+      }
+    }
+    .project-location{
+      font-size: 1.5rem;
+    }
+    .section-title{
+      font-size: 3.5rem;
+      font-weight: bold;
+    }
+  }
+  .funding-options{
+    flex-basis: 30%;
+    padding-left: 1.5rem;
+    border-left: solid 1px $border-color-grey;
+    flex-basis: 30%;
+  }
+}

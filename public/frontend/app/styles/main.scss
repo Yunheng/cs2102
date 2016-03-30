@@ -7,6 +7,9 @@ $icon-font-path: "../fonts/";
 @import 'ProjectsPage';
 @import 'OfflineSearchList';
 @import 'UserSelectBar';
+@import 'ViewProjectsList.scss';
+@import 'HomePage.scss';
+@import 'ViewProjectPage.scss';
 @import '_common.scss';
 .browsehappy {
     margin: 0.2em 0;

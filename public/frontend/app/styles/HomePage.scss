@@ -1,0 +1,30 @@
+@import '_colors';
+.HomePage{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  .welcome-bar{
+    height: 500px;
+    display: flex;
+    justify-content:center;
+    align-items: center;
+    flex-direction:column;
+    .welcome-message{
+      font-size: 6rem;
+      text-align: center;
+    }
+    .sub-message{
+      font-size: 4rem;
+      text-align: center;
+    }
+  }
+  .projects{
+    border-top: solid 2px $border-color-grey;
+    .section-title{
+      margin-top: 1rem;
+      font-size: 5rem;
+      font-weight: bold;
+      text-align: center;
+    }
+  }
+}
