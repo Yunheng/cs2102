@@ -16,3 +16,6 @@ $cancel-button-hover: darken($cancel-button, 30%);
 $action-button: map_get($palette, orange1);
 $action-button-hover: map_get($palette, orange2);
 
+$delete-button: map_get($palette, pink1);
+$delete-button-hover: darken(map_get($palette, pink1), 20%);
+

@@ -4,6 +4,7 @@ var React = window.React = require('react'),
     mountNode = document.getElementById("content");
 var reflux = require('reflux');
 var StateMixin = require('reflux-state-mixin')(reflux);
+var EditProjectPage = require('./components/EditProjectPage');
 import actions from './actions/AppStateAction';
 import TopBar from './components/TopBar.js';
 import AppStateStore from './stores/AppStateStore.js';
@@ -32,6 +33,7 @@ var App = React.createClass({
       case 'UserManagement': return <UserManagement />;
       case 'UserProjects': return <UserProjectsPage/>;
       case 'ViewProject': return <ViewProjectPage/>;
+      case 'EditProject': return <EditProjectPage/>;
       default: return <div className="error">Oops, something went wrong!</div>;
     }
   }

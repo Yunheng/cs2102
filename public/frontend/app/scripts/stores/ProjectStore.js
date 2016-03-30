@@ -17,7 +17,6 @@ var ProjectStore = reflux.createStore({
     });
   },
   retrieveUserProjects(user){
-    console.log('asd');
    $.ajax({
       type: 'GET',
       url: '/api/user/' + user +'/project',
@@ -36,6 +35,12 @@ var ProjectStore = reflux.createStore({
         })
      });
    }.bind(this));
+  },
+  deleteProject(project){
+    $.ajax({
+      type: 'DELETE',
+      url: '/api/project/' + project.id
+    });
   },
   retrieveProjects(){
     console.log('projects');
@@ -58,6 +63,9 @@ var ProjectStore = reflux.createStore({
     })).then(function(){
         this.setState({projects: projData});
     }.bind(this));
+
+  },
+  updateProject(){
 
   },
   addNewProject(args){
@@ -92,7 +100,9 @@ var ProjectStore = reflux.createStore({
       AppStateAction.getUserProjectsPage();
     });
   },
-
+  editProject(){
+    AppStateAction.getEditProjectPage();
+  },
   viewProject(project){
     this.setState({selectedProject: project});
     ProjectAction.retrieveProjectComments(project);

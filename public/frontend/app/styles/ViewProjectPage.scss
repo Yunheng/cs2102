@@ -2,7 +2,28 @@
 .ViewProjectPage{
   padding: 10rem;
   display: flex;
-
+  .user-control{
+    display: flex;
+    .button{
+      font-size: 1.5rem;
+      padding: 1rem 2rem;
+      border-radius: 0.2rem;
+      border: 1px solid;
+      border-color: darken($action-button, 60%);
+      background-color: $action-button;
+      margin-right: 0.5rem;
+      &:hover{
+        cursor: pointer;
+        background-color: $action-button-hover;
+      }
+      &.delete{
+        background-color: $delete-button;
+        &:hover{
+          background-color: $delete-button-hover;
+        }
+      }
+    }
+  }
   .project-info{
     font-size: 2rem;
     padding-right: 1.5rem;
@@ -46,7 +67,6 @@
         padding: 1.5rem;
         width: 600px;
         .commenter{
-          padding-left: 1rem;
           width: 10rem;
           font-weight: bold;
           &:after{
@@ -54,6 +74,12 @@
           }
         }
         .content{
+          flex-grow: 1;
+        }
+        .timestamp{
+          font-size: 1rem;
+          font-style: italic;
+          align-self: flex-end;
         }
       }
       .add-comment{

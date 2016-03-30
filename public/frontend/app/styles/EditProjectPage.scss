@@ -1,0 +1,46 @@
+
+@import '_colors';
+.EditProjectPage{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  .title {
+    font-weight: bold;
+    margin: 1rem;
+    font-size: 6rem;
+    text-align: center;
+  }
+  .form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 500px;
+    .form-line{
+      margin: 1.5rem 0;
+      display: flex;
+      width: 100%;
+      justify-content: space-between;
+      input, textarea, .UserSelectBar{
+        width: 350px;
+      }
+    }
+  }
+  .button{
+    padding: 1rem 2rem;
+    font-size: 1.5rem;
+    border-radius: 0.2rem;
+    border: 1px solid;
+    border-color: darken($action-button, 60%);
+    background-color: $action-button;
+    &:hover{
+      cursor: pointer;
+      background-color: $action-button-hover;
+    }
+  }
+  .cancel{
+    background-color: $cancel-button;
+    &:hover{
+      background-color: $cancel-button-hover;
+    }
+  }
+}

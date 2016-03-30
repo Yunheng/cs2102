@@ -42,6 +42,11 @@ var AppStateStore = reflux.createStore({
     this.setState({
       currentPage: 'ViewProject'
     })
+  },
+  getEditProjectPage(){
+    this.setState({
+      currentPage: 'EditProject'
+    })
   }
 
 });

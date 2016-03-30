@@ -7588,6 +7588,30 @@ button.close {
   display: -ms-flexbox;
   display: flex;
 }
+.ViewProjectPage .user-control {
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+}
+.ViewProjectPage .user-control .button {
+  font-size: 1.5rem;
+  padding: 1rem 2rem;
+  border-radius: 0.2rem;
+  border: 1px solid;
+  border-color: #633201;
+  background-color: #FECB98;
+  margin-right: 0.5rem;
+}
+.ViewProjectPage .user-control .button:hover {
+  cursor: pointer;
+  background-color: #F8A65A;
+}
+.ViewProjectPage .user-control .button.delete {
+  background-color: #FFD3E0;
+}
+.ViewProjectPage .user-control .button.delete:hover {
+  background-color: #ff6d98;
+}
 .ViewProjectPage .project-info {
   font-size: 2rem;
   padding-right: 1.5rem;
@@ -7642,12 +7666,23 @@ button.close {
   width: 600px;
 }
 .ViewProjectPage .project-info .project-comments .comment .commenter {
-  padding-left: 1rem;
   width: 10rem;
   font-weight: bold;
 }
 .ViewProjectPage .project-info .project-comments .comment .commenter:after {
   content: ':';
+}
+.ViewProjectPage .project-info .project-comments .comment .content {
+  -webkit-flex-grow: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1;
+}
+.ViewProjectPage .project-info .project-comments .comment .timestamp {
+  font-size: 1rem;
+  font-style: italic;
+  -webkit-align-self: flex-end;
+      -ms-flex-item-align: end;
+          align-self: flex-end;
 }
 .ViewProjectPage .project-info .project-comments .add-comment {
   margin-top: 2rem;
@@ -7680,6 +7715,67 @@ button.close {
   -webkit-flex-basis: 30%;
       -ms-flex-preferred-size: 30%;
           flex-basis: 30%;
+}
+
+.EditProjectPage {
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+.EditProjectPage .title {
+  font-weight: bold;
+  margin: 1rem;
+  font-size: 6rem;
+  text-align: center;
+}
+.EditProjectPage .form {
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 500px;
+}
+.EditProjectPage .form .form-line {
+  margin: 1.5rem 0;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  width: 100%;
+  -webkit-justify-content: space-between;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+.EditProjectPage .form .form-line input, .EditProjectPage .form .form-line textarea, .EditProjectPage .form .form-line .UserSelectBar {
+  width: 350px;
+}
+.EditProjectPage .button {
+  padding: 1rem 2rem;
+  font-size: 1.5rem;
+  border-radius: 0.2rem;
+  border: 1px solid;
+  border-color: #633201;
+  background-color: #FECB98;
+}
+.EditProjectPage .button:hover {
+  cursor: pointer;
+  background-color: #F8A65A;
+}
+.EditProjectPage .cancel {
+  background-color: #d6DFE2;
+}
+.EditProjectPage .cancel:hover {
+  background-color: #7c99a3;
 }
 
 html {

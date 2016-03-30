@@ -5,6 +5,7 @@ var ProjectsStore = require('../stores/ProjectStore');
 var LoginStore = require('../stores/LoginStore');
 var CommentStore = require('../stores/CommentStore');
 var $ = require('jquery');
+import {displayTime} from '../utils';
 var AppStateAction = require('../actions/AppStateAction');
 var ProjectAction = require('../actions/ProjectAction');
 var ViewProjectPage = React.createClass({
@@ -16,6 +17,12 @@ var ViewProjectPage = React.createClass({
   verifyUser(type){
     if(type === 'login') AppStateAction.getLoginPage();
     else AppStateAction.getSignupPage();
+  },
+  userIsOwner(){
+    return this.state.selectedProject.owners.some(function(owner){
+          return owner.member === this.state.userId;
+    }.bind(this));
+
   },
   submitComment(){
     console.log('submit');
@@ -29,21 +36,29 @@ var ViewProjectPage = React.createClass({
   renderComments(){
     return this.state.comments.map(function(comment){
       return (
-        <div className="comment">
+        <div className="comment" key={comment.id}>
           <div className="commenter">{comment.member}</div>
           <div className="content">{comment.content}</div>
+          <div className="timestamp">posted: {displayTime(comment.posted)}</div>
         </div>
       );
     })
   },
   render(){
-    var fakeData = {owners: ['nate', 'ned', 'mate']};
     console.log(this.state);
     if(this.state.selectedProject) {
       var project = this.state.selectedProject;
       return (
         <div className="ViewProjectPage">
           <div className="project-info">
+            {this.userIsOwner() ?
+              <div className="user-control">
+                <div className="edit button" onClick={ProjectAction.editProject}>Edit Project</div>
+                <div className="delete button" onClick={ProjectAction.deleteProject.bind(this, this.state.selectedProject)}>Delete Project</div>
+              </div>
+              :
+              null
+            }
             <div className="project-title">{project.title}</div>
             <div className="project-details">
               <div className="project-owner">

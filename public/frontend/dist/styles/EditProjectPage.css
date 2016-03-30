@@ -1,0 +1,60 @@
+.EditProjectPage {
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+.EditProjectPage .title {
+  font-weight: bold;
+  margin: 1rem;
+  font-size: 6rem;
+  text-align: center;
+}
+.EditProjectPage .form {
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 500px;
+}
+.EditProjectPage .form .form-line {
+  margin: 1.5rem 0;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  width: 100%;
+  -webkit-justify-content: space-between;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+.EditProjectPage .form .form-line input, .EditProjectPage .form .form-line textarea, .EditProjectPage .form .form-line .UserSelectBar {
+  width: 350px;
+}
+.EditProjectPage .button {
+  padding: 1rem 2rem;
+  font-size: 1.5rem;
+  border-radius: 0.2rem;
+  border: 1px solid;
+  border-color: #633201;
+  background-color: #FECB98;
+}
+.EditProjectPage .button:hover {
+  cursor: pointer;
+  background-color: #F8A65A;
+}
+.EditProjectPage .cancel {
+  background-color: #d6DFE2;
+}
+.EditProjectPage .cancel:hover {
+  background-color: #7c99a3;
+}
