@@ -15,7 +15,7 @@ class ProjectCommentController extends Controller
      * GET /api/project/{projectId}/comment
      */
     public function index($project) {
-      $results = DB::select("SELECT * FROM \"project_comment\" WHERE project_comment.project = :project", [
+      $results = DB::select("SELECT * FROM \"project_comment\" WHERE project_comment.project = :project ORDER BY posted DESC", [
         'project' => $project
       ]);
       return response()->json($results);
