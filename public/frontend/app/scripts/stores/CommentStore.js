@@ -16,10 +16,22 @@ var CommentStore = reflux.createStore({
       dataType: 'JSON'
     }).done(function(data){
       console.log('comment', data);
-    });
+      this.setState({comments: data});
+    }.bind(this));
   },
   addComment(comment){
-    console.log(comment);
+    $.ajax({
+      type: 'POST',
+      url: '/api/project/' + comment.project.id + '/comment',
+      dataType: 'JSON',
+      data: {
+        content: comment.comment,
+        user: comment.commenter
+      }
+    }).done(function(data){
+      console.log('commented', data);
+      this.retrieveProjectComments(comment.project);
+    }.bind(this));
   }
 });
 

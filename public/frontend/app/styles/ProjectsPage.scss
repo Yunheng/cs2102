@@ -12,7 +12,16 @@
     font-weight: bold;
     margin-bottom: 2rem;
   }
+  .projects{
+    .section-title{
+      margin-left: 25px;
+      font-size: 6rem;
+    }
+    border-bottom: solid 1px darken($border-color-grey,20%);
+  }
   .add-new-project{
+
+    margin-top: 2rem;
     .button{
       padding: 1rem 2rem;
       font-size: 1.5rem;

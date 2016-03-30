@@ -18,6 +18,7 @@ var ViewProjectPage = React.createClass({
     else AppStateAction.getSignupPage();
   },
   submitComment(){
+    console.log('submit');
     var comment = $('#comment').val();
     ProjectAction.addComment({
       comment: comment,
@@ -26,7 +27,14 @@ var ViewProjectPage = React.createClass({
     });
   },
   renderComments(){
-
+    return this.state.comments.map(function(comment){
+      return (
+        <div className="comment">
+          <div className="commenter">{comment.member}</div>
+          <div className="content">{comment.content}</div>
+        </div>
+      );
+    })
   },
   render(){
     var fakeData = {owners: ['nate', 'ned', 'mate']};

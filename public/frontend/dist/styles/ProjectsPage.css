@@ -17,6 +17,16 @@
   font-weight: bold;
   margin-bottom: 2rem;
 }
+.ProjectsPage .projects {
+  border-bottom: solid 1px #9ab0b8;
+}
+.ProjectsPage .projects .section-title {
+  margin-left: 25px;
+  font-size: 6rem;
+}
+.ProjectsPage .add-new-project {
+  margin-top: 2rem;
+}
 .ProjectsPage .add-new-project .button {
   padding: 1rem 2rem;
   font-size: 1.5rem;

@@ -39,7 +39,25 @@
         margin-top: 1.5rem;
         margin-bottom: 3rem;
       }
+      .comment{
+        display: flex;
+        border: 1px solid $border-color-grey;
+        background: white;
+        padding: 1.5rem;
+        width: 600px;
+        .commenter{
+          padding-left: 1rem;
+          width: 10rem;
+          font-weight: bold;
+          &:after{
+            content: ':';
+          }
+        }
+        .content{
+        }
+      }
       .add-comment{
+        margin-top: 2rem;
         font-size: 1.5rem;
         #comment{
           width: 500px;

@@ -48,7 +48,25 @@
   margin-top: 1.5rem;
   margin-bottom: 3rem;
 }
+.ViewProjectPage .project-info .project-comments .comment {
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  border: 1px solid #d6DFE2;
+  background: white;
+  padding: 1.5rem;
+  width: 600px;
+}
+.ViewProjectPage .project-info .project-comments .comment .commenter {
+  padding-left: 1rem;
+  width: 10rem;
+  font-weight: bold;
+}
+.ViewProjectPage .project-info .project-comments .comment .commenter:after {
+  content: ':';
+}
 .ViewProjectPage .project-info .project-comments .add-comment {
+  margin-top: 2rem;
   font-size: 1.5rem;
 }
 .ViewProjectPage .project-info .project-comments .add-comment #comment {
