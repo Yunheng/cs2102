@@ -16,12 +16,12 @@ class TransactionController extends Controller
    */
   public function store(Request $request) {
     DB::statement('BEGIN TRANSACTION');
-    $results = DB::insert("INSERT INTO \"transaction\" (code, type, \"user\") VALUES (random_string(12), :type, :user) RETURNING code", [
+    $results = DB::select("INSERT INTO \"transaction\" (code, type, \"user\") VALUES (random_string(12), :type, :user) RETURNING code", [
       'type'  => 'Credit',
       'user' => $request->input('user')
     ]);
-    //ReceiptController::store($request);
-    DB::statement('ROLLBACK');
-    return response()->json($results);
+    app('App\Http\Controllers\ReceiptController')->store($request, $results[0]->code);
+    DB::statement('COMMIT');
+    return response()->json($results[0]);
   }
 }
