@@ -6,11 +6,12 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
+use DB;
 
 class ReceiptController extends Controller
 {
   public function store(Request $request, $transaction) {
-    $results = DB::insert("INSERT INTO \"Receipt\" (receiptNo, address, amount, transaction) VALUES (random_string(12), :address, :amount, :transaction)", [
+    $results = DB::insert("INSERT INTO \"receipt\" (receiptNo, address, amount, transaction) VALUES (random_string(12), :address, :amount, :transaction)", [
       'address'  => $request->input('address'),
       'amount' => $request->input('amount'),
       'transaction' => $transaction
