@@ -10,14 +10,13 @@ use App\Http\Controllers\Controller;
 class ProjectCommentController extends Controller
 {
     /**
-     * URL route for fetching a user's projects
-     * GET /api/users/{userId}/projects
+     * URL route for fetching a project's comments
+     * GET /api/project/{projectId}/comment
      */
-    public function index($user) {
-      $results = DB::select("SELECT * FROM \"project\", \"project_owner\" WHERE project.id = project_owner.project AND project_owner.member = :username", [
-        'username' => $user
+    public function index($project) {
+      $results = DB::select("SELECT * FROM \"project_comment\" WHERE project_comment.project = :project", [
+        'project' => $project
       ]);
       return response()->json($results);
     }
-
 }

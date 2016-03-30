@@ -34,6 +34,9 @@ Route::group(['prefix' => 'api'], function () {
   Route::resource('project', 'ProjectController',
     ['only' => ['index', 'store', 'show', 'update', 'destroy']]);
 
+  Route::resource('project.comment', 'ProjectCommentController',
+    ['only' => ['index']]);
+
   Route::resource('user', 'UserController',
     ['only' => ['store', 'show', 'update']]);
 

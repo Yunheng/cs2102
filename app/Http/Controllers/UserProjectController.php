@@ -12,7 +12,7 @@ class UserProjectController extends Controller
 {
     /**
      * URL route for fetching a user's projects
-     * GET /api/users/{userId}/projects
+     * GET /api/user/{userId}/project
      */
     public function index($user) {
       $results = DB::select("SELECT * FROM \"project\", \"project_owner\" WHERE project.id = project_owner.project AND project_owner.member = :username", [
