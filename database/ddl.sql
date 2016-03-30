@@ -33,7 +33,8 @@ CREATE TABLE "user" (
 CREATE TABLE Project_Owner(
 	role VARCHAR(32) NOT NULL,
 	member VARCHAR(32) REFERENCES "user"(username),
-	project INTEGER REFERENCES Project(id)
+	project INTEGER REFERENCES Project(id),
+	PRIMARY KEY(member, project)
 );
 
 CREATE TABLE Project_Backer(
