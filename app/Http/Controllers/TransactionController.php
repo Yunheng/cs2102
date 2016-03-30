@@ -24,4 +24,5 @@ class TransactionController extends Controller
     DB::statement('COMMIT');
     return response()->json($results[0]);
   }
+
 }

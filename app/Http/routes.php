@@ -43,6 +43,9 @@ Route::group(['prefix' => 'api'], function () {
   Route::resource('user', 'UserController',
     ['only' => ['store', 'show', 'update']]);
 
+  Route::resource('user.transaction', 'UserTransactionController',
+    ['only' => ['index']]);
+
   Route::resource('transaction', 'TransactionController',
     ['only' => ['store']]);
 
