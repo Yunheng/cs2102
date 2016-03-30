@@ -37,6 +37,9 @@ Route::group(['prefix' => 'api'], function () {
   Route::resource('user', 'UserController',
     ['only' => ['store', 'show', 'update']]);
 
+  Route::resource('transaction', 'TransactionController',
+    ['only' => ['store']]);
+
   Route::resource('user.project', 'UserProjectController',
     ['only' => ['index']]);
 
