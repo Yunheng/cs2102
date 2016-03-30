@@ -7,6 +7,10 @@
     font-size: 2rem;
     padding-right: 1.5rem;
     flex-basis: 70%;
+    .section-title{
+      font-size: 3.5rem;
+      font-weight: bold;
+    }
     .project-title{
       font-size: 8rem;
       font-weight: bold;
@@ -29,9 +33,33 @@
     .project-location{
       font-size: 1.5rem;
     }
-    .section-title{
-      font-size: 3.5rem;
-      font-weight: bold;
+    .project-comments{
+      margin-top: 5rem;
+      .no-comments{
+        margin-top: 1.5rem;
+        margin-bottom: 3rem;
+      }
+      .add-comment{
+        font-size: 1.5rem;
+        #comment{
+          width: 500px;
+          height: 4.5rem;
+        }
+        .submit-comment{
+          margin-left: 1rem;
+        }
+        .button{
+          padding: 1rem 2rem;
+          border-radius: 0.2rem;
+          border: 1px solid;
+          border-color: darken($action-button, 60%);
+          background-color: $action-button;
+          &:hover{
+            cursor: pointer;
+            background-color: $action-button-hover;
+          }
+        }
+      }
     }
   }
   .funding-options{

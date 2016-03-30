@@ -7,9 +7,9 @@ var ViewProjectsList = React.createClass({
   mixins: [],
 
   renderProjects(){
-    console.log(this.props);
+    // console.log(this.props);
     return this.props.list.map(function(project, i){
-      console.log(project);
+      // console.log(project);
       return (
         <div className="project" key={i} onClick={ProjectAction.viewProject.bind(this, project)}>
           <div className="title">{project.title}</div>

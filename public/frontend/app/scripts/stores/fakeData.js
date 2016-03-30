@@ -44,6 +44,25 @@ var fakeProjectData = [
 ];
 
 
+var fakeComments = [
+  {
+    comment: 'this is a bloody comment',
+    projectId: 'this is project id',
+    userId: 'jio'
+  },
+  {
+    comment: 'this is a bloody comment',
+    projectId: 'this is project id',
+    userId: 'jio'
+  },
+  {
+    comment: 'this is a bloody comment',
+    projectId: 'this is project id',
+    userId: 'jio'
+  },
+]
+
+
 
 
 
@@ -53,5 +72,6 @@ var fakeProjectData = [
 export default function(type){
   switch(type){
     case 'projects': return fakeProjectData;
+    case 'comments': return fakeComments;
   }
 };

@@ -16,7 +16,7 @@ var UserManagementStore = reflux.createStore({
     console.log('get users');
     $.get('/api/users')
       .done(function(data){
-      console.log(data);
+      // console.log(data);
         this.setState({users: data});
     }.bind(this))
       .fail(function(error){

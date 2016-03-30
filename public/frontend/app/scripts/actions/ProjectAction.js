@@ -4,7 +4,9 @@ var ProjectAction = reflux.createActions([
   'addNewProject',
   'retrieveUserProjects',
   'retrieveProjects',
-  'viewProject'
+  'viewProject',
+  'addComment',
+  'retrieveProjectComments'
 ]);
 
 

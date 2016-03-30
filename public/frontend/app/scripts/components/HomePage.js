@@ -10,7 +10,7 @@ var HomePage = React.createClass({
     ProjectAction.retrieveProjects();
   },
   render(){
-    console.log(this.state);
+    // console.log(this.state);
     return (
       <div className="HomePage">
         <div className="welcome-bar">

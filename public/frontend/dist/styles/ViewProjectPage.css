@@ -11,6 +11,10 @@
       -ms-flex-preferred-size: 70%;
           flex-basis: 70%;
 }
+.ViewProjectPage .project-info .section-title {
+  font-size: 3.5rem;
+  font-weight: bold;
+}
 .ViewProjectPage .project-info .project-title {
   font-size: 8rem;
   font-weight: bold;
@@ -37,9 +41,33 @@
 .ViewProjectPage .project-info .project-location {
   font-size: 1.5rem;
 }
-.ViewProjectPage .project-info .section-title {
-  font-size: 3.5rem;
-  font-weight: bold;
+.ViewProjectPage .project-info .project-comments {
+  margin-top: 5rem;
+}
+.ViewProjectPage .project-info .project-comments .no-comments {
+  margin-top: 1.5rem;
+  margin-bottom: 3rem;
+}
+.ViewProjectPage .project-info .project-comments .add-comment {
+  font-size: 1.5rem;
+}
+.ViewProjectPage .project-info .project-comments .add-comment #comment {
+  width: 500px;
+  height: 4.5rem;
+}
+.ViewProjectPage .project-info .project-comments .add-comment .submit-comment {
+  margin-left: 1rem;
+}
+.ViewProjectPage .project-info .project-comments .add-comment .button {
+  padding: 1rem 2rem;
+  border-radius: 0.2rem;
+  border: 1px solid;
+  border-color: #633201;
+  background-color: #FECB98;
+}
+.ViewProjectPage .project-info .project-comments .add-comment .button:hover {
+  cursor: pointer;
+  background-color: #F8A65A;
 }
 .ViewProjectPage .funding-options {
   -webkit-flex-basis: 30%;
