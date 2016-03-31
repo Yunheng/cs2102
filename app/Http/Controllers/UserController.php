@@ -68,6 +68,13 @@ class UserController extends Controller
           'username' => $request->input('username'),
           'password' => $request->input('password')
       ]);
+
+      // check if we actually have a user found
+      if (count($results) > 0) {
+        DB::update('UPDATE \"user\" SET last_login = NOW() WHERE username = :username', [
+          'username' => $request->input('username')
+        ]);
+      }
       return response()->json($results);
     }
 
