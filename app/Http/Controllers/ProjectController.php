@@ -41,7 +41,7 @@ class ProjectController extends Controller
      * GET /api/project
      */
     public function index() {
-      $results = DB::select("SELECT p.*, SUM(b.amount) as totalAmt FROM \"project\" AS p, \"project_backer\" AS b WHERE p.id = b.project GROUP BY p.id ORDER BY p.date_created DESC");
+      $results = DB::select("SELECT p.*, SUM(b.amount) as totalAmt, COUNT(b.*) as backers FROM \"project\" AS p, \"project_backer\" AS b WHERE p.id = b.project GROUP BY p.id ORDER BY p.date_created DESC");
       return response()->json($results);
     }
 
