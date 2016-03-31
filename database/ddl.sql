@@ -8,7 +8,8 @@ CREATE TABLE Project(
 	country CHAR(2) NOT NULL,
 	city VARCHAR(128) NOT NULL,
 	category VARCHAR(32) NOT NULL,
-	date_created TIMESTAMP
+	date_created TIMESTAMP,
+	status CHAR(8) CHECK (status = 'ONGOING' OR status = 'COMPLETE' OR status = 'REVOKED')
 );
 
 CREATE TABLE Project_Reward(
@@ -82,6 +83,7 @@ CREATE TABLE News_Comment(
 CREATE TABLE Transaction(
 	code CHAR(12) PRIMARY KEY,
 	type CHAR(6) CHECK(type = 'Credit' OR type = 'Debit'),
+	amount NUMERIC CHECK(amount > 0.0),
 	"user" VARCHAR(32) REFERENCES "user"(username)
 );
 
