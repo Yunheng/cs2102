@@ -43,7 +43,6 @@ var ProjectStore = reflux.createStore({
     });
   },
   retrieveProjects(){
-    console.log('projects');
     var projData;
     $.when($.ajax({
       type: 'GET',
@@ -61,7 +60,8 @@ var ProjectStore = reflux.createStore({
         });
       });
     })).then(function(){
-        this.setState({projects: projData});
+      console.log('projects', projData);
+      this.setState({projects: projData});
     }.bind(this));
 
   },

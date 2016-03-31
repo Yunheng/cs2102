@@ -129,7 +129,7 @@ var ViewProjectPage = React.createClass({
                 <div className="stat-text">day(s)</div>
               </div>
             </div>
-            <div className="fund-me button">Fund Me</div>
+            <div className="fund-me button">Fund This</div>
 
           </div>
         </div>
