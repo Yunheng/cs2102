@@ -64,7 +64,7 @@ class UserController extends Controller
      * POST /api/user/login
      */
     public function login(Request $request) {
-      $results = DB::select("SELECT * FROM \"user\" WHERE username = :username AND password = :password", [
+      $results = DB::select("SELECT username, registered_date, address, avatar, email FROM \"user\" WHERE username = :username AND password = :password", [
           'username' => $request->input('username'),
           'password' => $request->input('password')
       ]);
