@@ -32,7 +32,7 @@ class ProjectController extends Controller
      * GET /api/project/{id}
      */
     public function show($project) {
-      $results = DB::select("SELECT p.*, SUM(b.amount) as totalAmt, COUNT(b.*) as backers FROM \"project\" as p, \"project_backer\" AS b WHERE p.id = b.project AND p.id = :project AND status = 'ONGOING' GROUP BY p.id", [
+      $results = DB::select("SELECT p.*, SUM(b.amount) as totalAmt, COUNT(b.*) as backers FROM project as p LEFT JOIN project_backer as b ON p.id = b.project WHERE p.id = :project AND (status = 'ONGOING' OR status = 'COMPLETE') GROUP BY p.id", [
           'project' => $project,
       ]);
       return response()->json($results[0]);
@@ -43,7 +43,7 @@ class ProjectController extends Controller
      * GET /api/project
      */
     public function index() {
-      $results = DB::select("SELECT p.*, SUM(b.amount) as totalAmt, COUNT(b.*) as backers FROM \"project\" AS p, \"project_backer\" AS b WHERE p.id = b.project AND status = 'ONGOING' GROUP BY p.id ORDER BY p.date_created DESC");
+      $results = DB::select("SELECT p.*, SUM(b.amount) as totalAmt, COUNT(b.*) as backers FROM project as p LEFT JOIN project_backer as b ON p.id = b.project WHERE (status = 'ONGOING' OR status = 'COMPLETE') GROUP BY p.id ORDER BY p.date_created DESC");
       return response()->json($results);
     }
 
