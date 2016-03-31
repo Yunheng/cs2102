@@ -18,6 +18,7 @@ class TransactionController extends Controller
     DB::statement('BEGIN TRANSACTION');
     $results = DB::select("INSERT INTO \"transaction\" (code, type, \"user\") VALUES (random_string(12), :type, :user) RETURNING code", [
       'type'  => 'Credit',
+      'amount' => $request->input('amount'),
       'user' => $request->input('user')
     ]);
     app('App\Http\Controllers\ReceiptController')->store($request, $results[0]->code);
