@@ -79,7 +79,9 @@ var ProjectStore = reflux.createStore({
         description: args.description,
         country: args.country,
         city: args.city,
-        category: args.category
+        category: args.category,
+        date_close: args.date_close,
+        targetAmount: args.targetAmount
       }
     }).done(function(data){
       var id = data.id;

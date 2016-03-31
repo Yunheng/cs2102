@@ -24,7 +24,7 @@ var LoginStore = reflux.createStore({
       }
     }
   },
-
+  
   checkLogin(){
     this.setState({user: localStorage.userId});
   },
@@ -48,6 +48,27 @@ var LoginStore = reflux.createStore({
       });
       window.setTimeout(this.setState.bind(this, {loginError: ''}), 3000);
     }.bind(this));
+  },
+  changeUserDetails(user){
+
+  },
+  testPassword(user, oldPw, newPw){
+    $.ajax({
+      type: 'POST',
+      url:'/api/user/login',
+      dataType: 'json',
+      data:{
+        user: user,
+        password: oldPw
+      }
+    }).done(function(data) {
+     //TODO: post new pw
+    }).fail(function(){
+      this.setState({
+        loginError: 'Your old password is wrong. Please try again.'
+      });
+      window.setTimeout(this.setState.bind(this, {loginError: ''}), 3000);
+    });
   },
   signupUser(user, password, email, file, address){
     console.log(user, password, email, file, address);

@@ -47,6 +47,27 @@ var AppStateStore = reflux.createStore({
     this.setState({
       currentPage: 'EditProject'
     })
+  },
+  getUserPage(){
+    this.setState({
+      currentPage: 'UserPage'
+    })
+  },
+  getEditUserPage(){
+    this.setState({
+      currentPage: 'UserPage'
+    });
+    this.setState({
+      currentPage: 'EditUser'
+    })
+  },
+  getChangePwPage(){
+    this.setState({
+      currentPage: 'UserPage'
+    });
+    this.setState({
+      currentPage: 'ChangePw'
+    })
   }
 
 });

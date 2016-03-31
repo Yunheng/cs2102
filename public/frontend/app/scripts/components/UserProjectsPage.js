@@ -4,8 +4,11 @@ var StateMixin = require('reflux-state-mixin')(reflux);
 var LoginStore = require('../stores/LoginStore');
 var ProjectStore = require('../stores/ProjectStore');
 var ProjectAction = require('../actions/ProjectAction');
+var DatePicker = require('react-datetime');
 var UserSelectBar = require('./UserSelectBar');
-var {countryCode} = require('../constants');
+var moment = require('moment');
+
+var {countryCode, category} = require('../constants');
 var ViewProjectsList = require('./ViewProjectsList');
 
 var UserProjectsPage = React.createClass({
@@ -14,7 +17,7 @@ var UserProjectsPage = React.createClass({
     StateMixin.connect(ProjectStore)
   ],
   getInitialState(){
-    return ({newProject: false, selectedUsers: []});
+    return ({newProject: false, selectedUsers: [], date: moment().add(7, 'days')});
   },
   componentDidMount(){
     ProjectAction.retrieveUserProjects(this.state.userId);
@@ -45,6 +48,8 @@ var UserProjectsPage = React.createClass({
       country: $('#country').val(),
       city: $('#city').val(),
       category: $('#category').val(),
+      targetAmount: $('#targetAmt').val(),
+      date_close: this.state.date.format(),
       projectOwners: this.state.selectedUsers
     });
   },
@@ -52,10 +57,19 @@ var UserProjectsPage = React.createClass({
     console.log('cancel');
     this.setState({newProject: false});
   },
-  renderCountryOptions(){
-    return countryCode.map(function(country){
-      return <option key={country} value={country}>{country}</option>
-    });
+  renderOptions(type){
+    switch(type){
+      case 'country': return countryCode.map(function (country) {
+        return <option key={country} value={country}>{country}</option>
+      });
+      case 'category': return category.map(function (cat) {
+        return <option key={cat} value={cat}>{cat}</option>
+      });
+    }
+
+  },
+  handleDate(date){
+    this.setState({date: date});
   },
   renderProjects(){
     return (
@@ -65,7 +79,9 @@ var UserProjectsPage = React.createClass({
       </div>
     );
   },
+
   renderNewProjectPage(){
+
     return (
       <div className="new-project-page">
         <div className="title">Add New Project</div>
@@ -79,9 +95,32 @@ var UserProjectsPage = React.createClass({
               <textarea rows="3" type="text" id="projdescription"/>
             </div>
             <div className="form-line">
+              <span className="line-text">Target Amount:</span>
+              $<input type="text" id="targetAmt" defaultValue="1"/>
+            </div>
+            <div className="form-line">
+              <span className="line-text">Closing Date:</span>
+              <DatePicker onChange={this.handleDate}
+                          defaultValue={this.state.date}
+                          isValidDate={function(date){
+                            var today = moment();
+                            return (today.add(6, 'days').isBefore(date) && today.add(12, 'months').isAfter(date));
+                          }}
+                          timeFormat={false}
+                          dateFormat="DD MMM YYYY"
+                          closeOnSelect={true}
+              />
+            </div>
+            <div className="form-line">
+              <span className="line-text">Category:</span>
+              <select id="category">
+                {this.renderOptions('category')}
+              </select>
+            </div>
+            <div className="form-line">
               <span className="line-text">Country:</span>
               <select id="country">
-                {this.renderCountryOptions()}
+                {this.renderOptions('country')}
               </select>
             </div>
             <div className="form-line">
@@ -89,13 +128,10 @@ var UserProjectsPage = React.createClass({
               <input type="text" id="city"/>
             </div>
             <div className="form-line">
-              <span className="line-text">Category:</span>
-              <input type="text" id="category"/>
-            </div>
-            <div className="form-line">
               <span className="line-text">Collaborators:</span>
               <UserSelectBar onSelection={this.onSelectUser} deleteUser={this.deleteUser} selectedUsers={this.state.selectedUsers}/>
             </div>
+
             <div className="form-line">
               <div className="cancel button" onClick={this.cancelCreateNew}>Cancel</div>
               <div className="submit button" onClick={this.createNewProject}>Create New</div>
@@ -106,8 +142,8 @@ var UserProjectsPage = React.createClass({
   },
 
   render: function(){
-    console.log(this.state);
-    console.log('render');
+    // console.log(this.state);
+    // console.log('render');
     return (
       <div className="ProjectsPage">
         {!this.state.newProject ?
@@ -130,3 +166,5 @@ var UserProjectsPage = React.createClass({
 
 
 export default UserProjectsPage;
+
+//<input id="pick-date" className="pick-date" placeholder="click to pickdate" onClick={this.togglePickDate}></input>

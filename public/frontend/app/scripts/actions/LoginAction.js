@@ -4,7 +4,9 @@ var TopBarActions = reflux.createActions([
   'checkLogin',
   'loginUser',
   'signupUser',
-  'userLogout'
+  'userLogout',
+  'testPassword',
+  'changeUserDetails'
 ]);
 
 module.exports = TopBarActions;

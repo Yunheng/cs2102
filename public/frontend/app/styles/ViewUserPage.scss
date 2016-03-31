@@ -1,0 +1,50 @@
+.ViewUserPage{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  .section-title{
+    font-size: 4rem;
+    font-weight: bold;
+    margin: 2rem;
+  }
+  .edit-user{
+    display: flex;
+    .button{
+      font-size: 1.5rem;
+      padding: 1rem 2rem;
+      border-radius: 0.2rem;
+      border: 1px solid;
+      border-color: darken($action-button, 60%);
+      background-color: $action-button;
+      margin-right: 0.5rem;
+      &:hover{
+        cursor: pointer;
+        background-color: $action-button-hover;
+      }
+      &.delete{
+        background-color: $delete-button;
+        &:hover{
+          background-color: $delete-button-hover;
+        }
+      }
+    }
+  }
+  .user-details{
+    width: 400px;
+    display: flex;
+    flex-direction: column;
+    .field-line{
+      margin: 2rem;
+      font-size: 2rem;
+      display: flex;
+      justify-content: flex-start;
+      .field-title{
+        width: 150px;
+        font-weight: bold;
+        &:after{
+          content: ':';
+        }
+      }
+    }
+  }
+}

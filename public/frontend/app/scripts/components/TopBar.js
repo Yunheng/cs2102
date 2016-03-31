@@ -1,10 +1,19 @@
 var React = require('react');
-var StateMixin = require('reflux-state-mixin');
+var reflux = require('reflux');
+var StateMixin = require('reflux-state-mixin')(reflux);
 var LoginStore = require('../stores/LoginStore');
 var AppActions = require('../actions/AppStateAction');
 var LoginActions = require('../actions/LoginAction');
+var UserActions = require('../actions/UserAction');
 var TopBar = React.createClass({
   mixins: [StateMixin.connect(LoginStore)],
+  viewUserProfile(){
+    AppActions.getUsers();
+    window.setTimeout(function(){
+      UserActions.selectUserById(this.state.userId);
+      AppActions.getUserPage();
+    }.bind(this), 500);
+  },
   render: function() {
     return (
       <div className="TopBar">
@@ -18,8 +27,7 @@ var TopBar = React.createClass({
         </div>
           :
         <div className="user-profile">
-          <div className="username"><span className="hello">Hello</span> {this.state.userId}!</div>
-          <div className="manage-users button" onClick={AppActions.getUserManagement}>Manage Users</div>
+          <div className="username"><span className="hello">Hello</span> <span className="name" onClick={this.viewUserProfile}>{this.state.userId}</span>!</div>
           <div className="projects button" onClick={AppActions.getUserProjectsPage}>Manage Projects</div>
           <div className="logout button" onClick={this.userLogout}>Logout</div>
 

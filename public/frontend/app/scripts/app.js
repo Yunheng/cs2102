@@ -5,6 +5,8 @@ var React = window.React = require('react'),
 var reflux = require('reflux');
 var StateMixin = require('reflux-state-mixin')(reflux);
 var EditProjectPage = require('./components/EditProjectPage');
+var ViewUserPage = require('./components/ViewUserPage');
+var EditUserPage = require('./components/EditUserPage');
 import actions from './actions/AppStateAction';
 import TopBar from './components/TopBar.js';
 import AppStateStore from './stores/AppStateStore.js';
@@ -34,6 +36,9 @@ var App = React.createClass({
       case 'UserProjects': return <UserProjectsPage/>;
       case 'ViewProject': return <ViewProjectPage/>;
       case 'EditProject': return <EditProjectPage/>;
+      case 'UserPage': return <ViewUserPage/>;
+      case 'EditUser': return <EditUserPage state="EditUser"/>;
+      case 'ChangePw': return <EditUserPage state="ChangePw"/>;
       default: return <div className="error">Oops, something went wrong!</div>;
     }
   }

@@ -60,3 +60,6 @@
 .TopBar .user-action .username .hello, .TopBar .manager-user .username .hello, .TopBar .user-profile .username .hello {
   margin-right: 0.6rem;
 }
+.TopBar .user-action .username .name, .TopBar .manager-user .username .name, .TopBar .user-profile .username .name {
+  cursor: pointer;
+}

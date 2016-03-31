@@ -5,6 +5,7 @@
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
  */
 /*! normalize.css v3.0.3 | MIT License | github.com/necolas/normalize.css */
+@import url(react-datetime.css);
 html {
   font-family: sans-serif;
   -ms-text-size-adjust: 100%;
@@ -7331,6 +7332,9 @@ button.close {
 .TopBar .user-action .username .hello, .TopBar .manager-user .username .hello, .TopBar .user-profile .username .hello {
   margin-right: 0.6rem;
 }
+.TopBar .user-action .username .name, .TopBar .manager-user .username .name, .TopBar .user-profile .username .name {
+  cursor: pointer;
+}
 
 .SignupPage .body .form {
   width: 500px;
@@ -7776,6 +7780,136 @@ button.close {
 }
 .EditProjectPage .cancel:hover {
   background-color: #7c99a3;
+}
+
+.ViewUserPage {
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+.ViewUserPage .section-title {
+  font-size: 4rem;
+  font-weight: bold;
+  margin: 2rem;
+}
+.ViewUserPage .edit-user {
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+}
+.ViewUserPage .edit-user .button {
+  font-size: 1.5rem;
+  padding: 1rem 2rem;
+  border-radius: 0.2rem;
+  border: 1px solid;
+  border-color: #633201;
+  background-color: #FECB98;
+  margin-right: 0.5rem;
+}
+.ViewUserPage .edit-user .button:hover {
+  cursor: pointer;
+  background-color: #F8A65A;
+}
+.ViewUserPage .edit-user .button.delete {
+  background-color: #FFD3E0;
+}
+.ViewUserPage .edit-user .button.delete:hover {
+  background-color: #ff6d98;
+}
+.ViewUserPage .user-details {
+  width: 400px;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+.ViewUserPage .user-details .field-line {
+  margin: 2rem;
+  font-size: 2rem;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-justify-content: flex-start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+}
+.ViewUserPage .user-details .field-line .field-title {
+  width: 150px;
+  font-weight: bold;
+}
+.ViewUserPage .user-details .field-line .field-title:after {
+  content: ':';
+}
+
+.EditUserPage {
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-flex-direction: column;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+.EditUserPage .section-title {
+  font-size: 4rem;
+  font-weight: bold;
+  margin: 2rem;
+}
+.EditUserPage .field-line {
+  width: 400px;
+  margin: 2rem;
+  font-size: 2rem;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-justify-content: flex-start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+}
+.EditUserPage .field-line .field-title {
+  width: 200px;
+  font-weight: bold;
+}
+.EditUserPage .field-line .field-title:after {
+  content: ':';
+}
+.EditUserPage .field-line-button {
+  width: 600px;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-justify-content: space-between;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+.EditUserPage .field-line-button .button {
+  font-size: 1.5rem;
+  padding: 1rem 2rem;
+  border-radius: 0.2rem;
+  border: 1px solid;
+  border-color: #633201;
+  background-color: #FECB98;
+  margin-right: 0.5rem;
+}
+.EditUserPage .field-line-button .button:hover {
+  cursor: pointer;
+  background-color: #F8A65A;
+}
+.EditUserPage .field-line-button .button.delete {
+  background-color: #FFD3E0;
+}
+.EditUserPage .field-line-button .button.delete:hover {
+  background-color: #ff6d98;
 }
 
 html {

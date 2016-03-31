@@ -8,6 +8,7 @@ var $ = require('jquery');
 import {displayTime} from '../utils';
 var AppStateAction = require('../actions/AppStateAction');
 var ProjectAction = require('../actions/ProjectAction');
+var UserAction = require('../actions/UserAction');
 var ViewProjectPage = React.createClass({
   mixins: [
     StateMixin.connect(ProjectsStore),
@@ -33,11 +34,18 @@ var ViewProjectPage = React.createClass({
       commenter: this.state.userId
     });
   },
+  userClick(user){
+    AppStateAction.getUsers();
+    window.setTimeout(function(){
+    UserAction.selectUser(user, true);
+    AppStateAction.getUserPage();
+    }, 500);
+  },
   renderComments(){
     return this.state.comments.map(function(comment){
       return (
         <div className="comment" key={comment.id}>
-          <div className="commenter">{comment.member}</div>
+          <div className="commenter" onClick={this.userClick.bind(this, comment.member)}>{comment.member}</div>
           <div className="content">{comment.content}</div>
           <div className="timestamp">posted: {displayTime(comment.posted)}</div>
         </div>
@@ -63,7 +71,7 @@ var ViewProjectPage = React.createClass({
             <div className="project-details">
               <div className="project-owner">
                 Project by: {project.owners.map(function(owner){
-                  return <span className="owner" key={owner.member}>{owner.member}</span>
+                  return <span className="owner" key={owner.member} onClick={this.userClick.bind(this, owner.member)}>{owner.member}</span>
                 })}
               </div>
               <div className="project-location">
