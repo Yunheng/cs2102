@@ -15,7 +15,7 @@ class UserProjectController extends Controller
      * GET /api/user/{userId}/project
      */
     public function index($user) {
-      $results = DB::select("SELECT * FROM \"project\", \"project_owner\" WHERE project.id = project_owner.project AND project_owner.member = :username AND (project.status = 'ONGOING' OR project.status = 'COMPLETE')", [
+      $results = DB::select("SELECT p.*, SUM(b.amount) as totalAmt, COUNT(b.*) as backers FROM \"project\" AS p, \"project_owner\" AS o, \"project_backer\" as b  WHERE p.id = b.project AND p.id = o.project AND o.member = :username AND (p.status = 'ONGOING' OR p.status = 'COMPLETE') GROUP BY p.id ORDER BY p.date_created DESC", [
         'username' => $user
       ]);
       return response()->json($results);
