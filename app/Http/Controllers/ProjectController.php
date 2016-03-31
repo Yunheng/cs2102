@@ -15,12 +15,14 @@ class ProjectController extends Controller
      * POST /api/project
      */
     public function store(Request $request) {
-      $results = DB::select("INSERT INTO \"project\" (title, description, country, city, category, date_created, status) VALUES (:title, :description, :country, :city, :category, NOW(), 'ONGOING') RETURNING id", [
+      $results = DB::select("INSERT INTO \"project\" (title, description, country, city, category, date_created, status, date_close, targetAmount) VALUES (:title, :description, :country, :city, :category, NOW(), 'ONGOING', :dateClose, :target) RETURNING id", [
           'title'        => $request->input('title'),
           'description'  => $request->input('description'),
           'country'      => $request->input('country'),
           'city'         => $request->input('city'),
           'category'     => $request->input('category'),
+          'dateClose'     => $request->input('date_close'),
+          'target'     => $request->input('targetAmount'),
       ]);
       return response()->json($results[0]);
     }
