@@ -15,7 +15,7 @@ class ProjectController extends Controller
      * POST /api/project
      */
     public function store(Request $request) {
-      $results = DB::select("INSERT INTO \"project\" (title, description, country, city, category, date_created) VALUES (:title, :description, :country, :city, :category, NOW()) RETURNING id", [
+      $results = DB::select("INSERT INTO \"project\" (title, description, country, city, category, date_created, status) VALUES (:title, :description, :country, :city, :category, NOW(), 'ONGOING') RETURNING id", [
           'title'        => $request->input('title'),
           'description'  => $request->input('description'),
           'country'      => $request->input('country'),
@@ -30,7 +30,7 @@ class ProjectController extends Controller
      * GET /api/project/{id}
      */
     public function show($project) {
-      $results = DB::select("SELECT * FROM \"project\" WHERE id = :project", [
+      $results = DB::select("SELECT * FROM \"project\" WHERE id = :project AND status = 'ONGOING'", [
           'project' => $project,
       ]);
       return response()->json($results);
@@ -41,7 +41,7 @@ class ProjectController extends Controller
      * GET /api/project
      */
     public function index() {
-      $results = DB::select("SELECT p.*, SUM(b.amount) as totalAmt, COUNT(b.*) as backers FROM \"project\" AS p, \"project_backer\" AS b WHERE p.id = b.project GROUP BY p.id ORDER BY p.date_created DESC");
+      $results = DB::select("SELECT p.*, SUM(b.amount) as totalAmt, COUNT(b.*) as backers FROM \"project\" AS p, \"project_backer\" AS b WHERE p.id = b.project AND status = 'ONGOING' GROUP BY p.id ORDER BY p.date_created DESC");
       return response()->json($results);
     }
 
