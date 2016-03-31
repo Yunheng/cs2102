@@ -50,7 +50,7 @@ var ViewProjectPage = React.createClass({
           <div className="timestamp">posted: {displayTime(comment.posted)}</div>
         </div>
       );
-    })
+    }.bind(this))
   },
   render(){
     console.log(this.state);
@@ -72,7 +72,7 @@ var ViewProjectPage = React.createClass({
               <div className="project-owner">
                 Project by: {project.owners.map(function(owner){
                   return <span className="owner" key={owner.member} onClick={this.userClick.bind(this, owner.member)}>{owner.member}</span>
-                })}
+                }.bind(this))}
               </div>
               <div className="project-location">
                 Location: {project.city}, {project.country}
