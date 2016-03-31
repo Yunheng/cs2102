@@ -9,7 +9,10 @@ module.exports.countryCode = [
 module.exports.category = [
   'charity',
   'personal',
-  'community'
+  'community',
+  'emergency',
+  'education',
+  'creative'
 ];
 var range = function(num1, num2) {
   let array = [];

@@ -68,6 +68,11 @@ var AppStateStore = reflux.createStore({
     this.setState({
       currentPage: 'ChangePw'
     })
+  },
+  getFundProjectPage(){
+    this.setState({
+      currentPage: 'FundProject'
+    });
   }
 
 });

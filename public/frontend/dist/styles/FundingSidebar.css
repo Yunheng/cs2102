@@ -1,0 +1,98 @@
+.FundingSidebar {
+  font-size: 1.5rem;
+  -webkit-flex-basis: 30%;
+      -ms-flex-preferred-size: 30%;
+          flex-basis: 30%;
+  padding-left: 1.5rem;
+  border-left: solid 1px #d6DFE2;
+}
+.FundingSidebar .project-info {
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  border-left: 1px solid #7c99a3;
+  border-right: 1px solid #7c99a3;
+  border-top: 1px solid #7c99a3;
+  -webkit-justify-content: space-between;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  padding: 1rem;
+  font-size: 1.2rem;
+  background-color: #f68c29;
+  font-color: #FEFAF6;
+}
+.FundingSidebar .project-info .info {
+  font-weight: bold;
+}
+.FundingSidebar .amount {
+  padding-left: 0.5rem;
+  border-left: 1px solid #7c99a3;
+  border-right: 1px solid #7c99a3;
+  background-color: white;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-justify-content: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-align-items: baseline;
+      -ms-flex-align: baseline;
+          align-items: baseline;
+}
+.FundingSidebar .amount .raised {
+  font-size: 6rem;
+  font-weight: bold;
+  margin-right: 1.5rem;
+}
+.FundingSidebar .amount .of {
+  margin-right: 1.5rem;
+}
+.FundingSidebar .amount .target {
+  font-size: 3rem;
+}
+.FundingSidebar .stats {
+  border-left: 1px solid #7c99a3;
+  border-right: 1px solid #7c99a3;
+  border-bottom: 1px solid #7c99a3;
+  padding-left: 0.5rem;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+.FundingSidebar .stats .stats-line {
+  padding-bottom: 1rem;
+  -webkit-justify-content: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  background-color: white;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: baseline;
+      -ms-flex-align: baseline;
+          align-items: baseline;
+}
+.FundingSidebar .stats .stats-line div {
+  margin-right: 0.5rem;
+}
+.FundingSidebar .stats .stats-line .stat-val {
+  font-size: 2rem;
+  font-weight: bold;
+}
+.FundingSidebar .button {
+  font-size: 4rem;
+  font-weight: bold;
+  padding: 1.5rem 2rem;
+  border-radius: 0.2rem;
+  text-align: center;
+  border: 1px solid;
+  border-color: #633201;
+  background-color: #FECB98;
+}
+.FundingSidebar .button:hover {
+  cursor: pointer;
+  background-color: #F8A65A;
+}

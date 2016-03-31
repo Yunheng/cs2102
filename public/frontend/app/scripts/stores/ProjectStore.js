@@ -109,6 +109,9 @@ var ProjectStore = reflux.createStore({
     this.setState({selectedProject: project});
     ProjectAction.retrieveProjectComments(project);
     AppStateAction.getViewProjectPage();
+  },
+  fundProject(args){
+    
   }
 });
 

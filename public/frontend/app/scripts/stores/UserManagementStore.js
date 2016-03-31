@@ -23,7 +23,10 @@ var UserManagementStore = reflux.createStore({
     if(!fromList) this.setState({selectedUser: user});
     else{
       this.setState({
-        
+        selectedUser: this.state.users.filter(function(u){
+          console.log(u);
+          return u.username === user;
+        }.bind(this))[0]
       })
     }
   },

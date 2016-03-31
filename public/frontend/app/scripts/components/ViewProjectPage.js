@@ -4,9 +4,10 @@ var StateMixin = require('reflux-state-mixin')(reflux);
 var ProjectsStore = require('../stores/ProjectStore');
 var LoginStore = require('../stores/LoginStore');
 var CommentStore = require('../stores/CommentStore');
+var FundingSidebar = require('./FundingSideBar');
 var moment = require('moment');
 var $ = require('jquery');
-import {displayTime, calculateDaysPassed} from '../utils';
+import {displayTime} from '../utils';
 var AppStateAction = require('../actions/AppStateAction');
 var ProjectAction = require('../actions/ProjectAction');
 var UserAction = require('../actions/UserAction');
@@ -36,6 +37,7 @@ var ViewProjectPage = React.createClass({
     });
   },
   userClick(user){
+    console.log('userClick');
     AppStateAction.getUsers();
     window.setTimeout(function(){
     UserAction.selectUser(user, true);
@@ -100,38 +102,7 @@ var ViewProjectPage = React.createClass({
             </div>
 
           </div>
-          <div className="funding-options">
-            <div className="project-info">
-              <div className="project-location">
-                Location: <span className="info">{project.city}, {project.country}</span>
-              </div>
-              <div className="project-category">
-                Category: <span className="info">{project.category}</span>
-              </div>
-            </div>
-            <div className="amount">
-              <div className="raised">${project.totalamt ? project.totalamt : 0}</div>
-              <span className="of">of</span>
-              <div className="target">${project.targetamount}</div>
-            </div>
-            <div className="bar"></div>
-            <div className="stats">
-              <div className="stats-line">
-                <div className="stat-text">Raised by</div>
-                <div className="stat-val">{project.backers}</div>
-                <div className="stat-text">people in</div>
-                <div className="stat-val">{calculateDaysPassed(moment(project.date_created), moment())}</div>
-                <div className="stat-text">day(s)</div>
-              </div>
-              <div className="stats-line">
-                <div className="stat-text">Closing in</div>
-                <div className="stat-val">{calculateDaysPassed(moment(), moment(project.date_close))}</div>
-                <div className="stat-text">day(s)</div>
-              </div>
-            </div>
-            <div className="fund-me button">Fund This</div>
-
-          </div>
+          <FundingSidebar project={project} displayButton={true} onClick={this.fundClick}/>
         </div>
       );
     }

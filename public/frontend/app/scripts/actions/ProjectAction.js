@@ -9,7 +9,8 @@ var ProjectAction = reflux.createActions([
   'retrieveProjectComments',
   'deleteProject',
   'editProject',
-  'updateProject'
+  'updateProject',
+  'fundProject'
 ]);
 
 
