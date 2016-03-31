@@ -4,11 +4,13 @@ BEGIN TRANSACTION;
 CREATE TABLE Project(
 	id SERIAL PRIMARY KEY,
 	title VARCHAR(128) NOT NULL,
-	description TEXT,
+	description TEXT NOT NULL,
 	country CHAR(2) NOT NULL,
 	city VARCHAR(128) NOT NULL,
 	category VARCHAR(32) NOT NULL,
-	date_created TIMESTAMP,
+	date_created TIMESTAMP NOT NULL,
+	date_close TIMESTAMP NOT NULL,
+	targetAmount NUMERIC NOT NULL,
 	status CHAR(8) CHECK (status = 'ONGOING' OR status = 'COMPLETE' OR status = 'REVOKED')
 );
 
