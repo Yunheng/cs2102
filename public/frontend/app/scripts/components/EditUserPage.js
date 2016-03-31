@@ -15,7 +15,11 @@ var EditUserPage = React.createClass({
     AppStateAction.getUserPage();
   },
   changeDetails(){
-    LoginAction.changeUserDetails();
+    LoginAction.changeUserDetails({
+      address: $('#address').val(),
+      email: $('#email').val(),
+      user: this.state.selectedUser.username
+    });
   },
 
   changePw(){
@@ -43,11 +47,11 @@ var EditUserPage = React.createClass({
           <input className="field" id="address"/>
         </div>
 
-        <div className="field-line">{this.state.loginError}</div>
+        <div className="field-line message">{this.state.loginError}</div>
         <div className="field-line-button">
           <div className="cancel button" onClick={this.cancel}>Cancel</div>
           <div className="changePw button" onClick={AppStateAction.getChangePwPage}>Change Password</div>
-          <div className="save button">Save Changes</div>
+          <div className="save button"onClick={this.changeDetails}>Save Changes</div>
         </div>
       </div>
     )
@@ -67,8 +71,9 @@ var EditUserPage = React.createClass({
         </div>
         <div className="field-line">
           <span className="field-title">New Password</span>
-          <input type="password" className="field" id="New"/>
+          <input type="password" className="field" id="new"/>
         </div>
+        <div className="field-line message">{this.state.loginError}</div>
         <div className="field-line-button">
           <div className="cancel button" onClick={this.cancel}>Cancel</div>
           <div className="save button" onClick={this.changePw}>Confirm</div>

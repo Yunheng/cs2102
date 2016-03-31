@@ -1,3 +1,4 @@
+@import '_colors';
 .EditUserPage{
   display: flex;
   align-items: center;
@@ -19,6 +20,9 @@
       &:after{
         content: ':';
       }
+    }
+    &.message{
+      color: $error;
     }
   }
   .field-line-button{

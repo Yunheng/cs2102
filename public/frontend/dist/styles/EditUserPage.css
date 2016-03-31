@@ -1,99 +1,65 @@
-/*
-Error: Undefined variable: "$action-button".
-        on line 33 of ./app/styles/EditUserPage.scss
-
-28:     .button{
-29:       font-size: 1.5rem;
-30:       padding: 1rem 2rem;
-31:       border-radius: 0.2rem;
-32:       border: 1px solid;
-33:       border-color: darken($action-button, 60%);
-34:       background-color: $action-button;
-35:       margin-right: 0.5rem;
-36:       &:hover{
-37:         cursor: pointer;
-38:         background-color: $action-button-hover;
-
-Backtrace:
-./app/styles/EditUserPage.scss:33
-/usr/local/lib/ruby/gems/2.3.0/gems/sass-3.4.21/lib/sass/script/tree/variable.rb:49:in `_perform'
-/usr/local/lib/ruby/gems/2.3.0/gems/sass-3.4.21/lib/sass/script/tree/node.rb:50:in `perform'
-/usr/local/lib/ruby/gems/2.3.0/gems/sass-3.4.21/lib/sass/script/tree/funcall.rb:170:in `perform_arg'
-/usr/local/lib/ruby/gems/2.3.0/gems/sass-3.4.21/lib/sass/script/tree/funcall.rb:124:in `block in _perform'
-/usr/local/lib/ruby/gems/2.3.0/gems/sass-3.4.21/lib/sass/script/tree/funcall.rb:124:in `each'
-/usr/local/lib/ruby/gems/2.3.0/gems/sass-3.4.21/lib/sass/script/tree/funcall.rb:124:in `each_with_index'
-/usr/local/lib/ruby/gems/2.3.0/gems/sass-3.4.21/lib/sass/script/tree/funcall.rb:124:in `each'
-/usr/local/lib/ruby/gems/2.3.0/gems/sass-3.4.21/lib/sass/script/tree/funcall.rb:124:in `map'
-/usr/local/lib/ruby/gems/2.3.0/gems/sass-3.4.21/lib/sass/script/tree/funcall.rb:124:in `_perform'
-/usr/local/lib/ruby/gems/2.3.0/gems/sass-3.4.21/lib/sass/script/tree/node.rb:50:in `perform'
-/usr/local/lib/ruby/gems/2.3.0/gems/sass-3.4.21/lib/sass/tree/visitors/perform.rb:395:in `visit_prop'
-/usr/local/lib/ruby/gems/2.3.0/gems/sass-3.4.21/lib/sass/tree/visitors/base.rb:36:in `visit'
-/usr/local/lib/ruby/gems/2.3.0/gems/sass-3.4.21/lib/sass/tree/visitors/perform.rb:158:in `block in visit'
-/usr/local/lib/ruby/gems/2.3.0/gems/sass-3.4.21/lib/sass/stack.rb:79:in `block in with_base'
-/usr/local/lib/ruby/gems/2.3.0/gems/sass-3.4.21/lib/sass/stack.rb:115:in `with_frame'
-/usr/local/lib/ruby/gems/2.3.0/gems/sass-3.4.21/lib/sass/stack.rb:79:in `with_base'
-/usr/local/lib/ruby/gems/2.3.0/gems/sass-3.4.21/lib/sass/tree/visitors/perform.rb:158:in `visit'
-/usr/local/lib/ruby/gems/2.3.0/gems/sass-3.4.21/lib/sass/tree/visitors/perform.rb:431:in `block (2 levels) in visit_rule'
-/usr/local/lib/ruby/gems/2.3.0/gems/sass-3.4.21/lib/sass/tree/visitors/perform.rb:431:in `map'
-/usr/local/lib/ruby/gems/2.3.0/gems/sass-3.4.21/lib/sass/tree/visitors/perform.rb:431:in `block in visit_rule'
-/usr/local/lib/ruby/gems/2.3.0/gems/sass-3.4.21/lib/sass/tree/visitors/perform.rb:179:in `with_environment'
-/usr/local/lib/ruby/gems/2.3.0/gems/sass-3.4.21/lib/sass/tree/visitors/perform.rb:429:in `visit_rule'
-/usr/local/lib/ruby/gems/2.3.0/gems/sass-3.4.21/lib/sass/tree/visitors/base.rb:36:in `visit'
-/usr/local/lib/ruby/gems/2.3.0/gems/sass-3.4.21/lib/sass/tree/visitors/perform.rb:158:in `block in visit'
-/usr/local/lib/ruby/gems/2.3.0/gems/sass-3.4.21/lib/sass/stack.rb:79:in `block in with_base'
-/usr/local/lib/ruby/gems/2.3.0/gems/sass-3.4.21/lib/sass/stack.rb:115:in `with_frame'
-/usr/local/lib/ruby/gems/2.3.0/gems/sass-3.4.21/lib/sass/stack.rb:79:in `with_base'
-/usr/local/lib/ruby/gems/2.3.0/gems/sass-3.4.21/lib/sass/tree/visitors/perform.rb:158:in `visit'
-/usr/local/lib/ruby/gems/2.3.0/gems/sass-3.4.21/lib/sass/tree/visitors/perform.rb:431:in `block (2 levels) in visit_rule'
-/usr/local/lib/ruby/gems/2.3.0/gems/sass-3.4.21/lib/sass/tree/visitors/perform.rb:431:in `map'
-/usr/local/lib/ruby/gems/2.3.0/gems/sass-3.4.21/lib/sass/tree/visitors/perform.rb:431:in `block in visit_rule'
-/usr/local/lib/ruby/gems/2.3.0/gems/sass-3.4.21/lib/sass/tree/visitors/perform.rb:179:in `with_environment'
-/usr/local/lib/ruby/gems/2.3.0/gems/sass-3.4.21/lib/sass/tree/visitors/perform.rb:429:in `visit_rule'
-/usr/local/lib/ruby/gems/2.3.0/gems/sass-3.4.21/lib/sass/tree/visitors/base.rb:36:in `visit'
-/usr/local/lib/ruby/gems/2.3.0/gems/sass-3.4.21/lib/sass/tree/visitors/perform.rb:158:in `block in visit'
-/usr/local/lib/ruby/gems/2.3.0/gems/sass-3.4.21/lib/sass/stack.rb:79:in `block in with_base'
-/usr/local/lib/ruby/gems/2.3.0/gems/sass-3.4.21/lib/sass/stack.rb:115:in `with_frame'
-/usr/local/lib/ruby/gems/2.3.0/gems/sass-3.4.21/lib/sass/stack.rb:79:in `with_base'
-/usr/local/lib/ruby/gems/2.3.0/gems/sass-3.4.21/lib/sass/tree/visitors/perform.rb:158:in `visit'
-/usr/local/lib/ruby/gems/2.3.0/gems/sass-3.4.21/lib/sass/tree/visitors/perform.rb:431:in `block (2 levels) in visit_rule'
-/usr/local/lib/ruby/gems/2.3.0/gems/sass-3.4.21/lib/sass/tree/visitors/perform.rb:431:in `map'
-/usr/local/lib/ruby/gems/2.3.0/gems/sass-3.4.21/lib/sass/tree/visitors/perform.rb:431:in `block in visit_rule'
-/usr/local/lib/ruby/gems/2.3.0/gems/sass-3.4.21/lib/sass/tree/visitors/perform.rb:179:in `with_environment'
-/usr/local/lib/ruby/gems/2.3.0/gems/sass-3.4.21/lib/sass/tree/visitors/perform.rb:429:in `visit_rule'
-/usr/local/lib/ruby/gems/2.3.0/gems/sass-3.4.21/lib/sass/tree/visitors/base.rb:36:in `visit'
-/usr/local/lib/ruby/gems/2.3.0/gems/sass-3.4.21/lib/sass/tree/visitors/perform.rb:158:in `block in visit'
-/usr/local/lib/ruby/gems/2.3.0/gems/sass-3.4.21/lib/sass/stack.rb:79:in `block in with_base'
-/usr/local/lib/ruby/gems/2.3.0/gems/sass-3.4.21/lib/sass/stack.rb:115:in `with_frame'
-/usr/local/lib/ruby/gems/2.3.0/gems/sass-3.4.21/lib/sass/stack.rb:79:in `with_base'
-/usr/local/lib/ruby/gems/2.3.0/gems/sass-3.4.21/lib/sass/tree/visitors/perform.rb:158:in `visit'
-/usr/local/lib/ruby/gems/2.3.0/gems/sass-3.4.21/lib/sass/tree/visitors/base.rb:52:in `block in visit_children'
-/usr/local/lib/ruby/gems/2.3.0/gems/sass-3.4.21/lib/sass/tree/visitors/base.rb:52:in `map'
-/usr/local/lib/ruby/gems/2.3.0/gems/sass-3.4.21/lib/sass/tree/visitors/base.rb:52:in `visit_children'
-/usr/local/lib/ruby/gems/2.3.0/gems/sass-3.4.21/lib/sass/tree/visitors/perform.rb:167:in `block in visit_children'
-/usr/local/lib/ruby/gems/2.3.0/gems/sass-3.4.21/lib/sass/tree/visitors/perform.rb:179:in `with_environment'
-/usr/local/lib/ruby/gems/2.3.0/gems/sass-3.4.21/lib/sass/tree/visitors/perform.rb:166:in `visit_children'
-/usr/local/lib/ruby/gems/2.3.0/gems/sass-3.4.21/lib/sass/tree/visitors/base.rb:36:in `block in visit'
-/usr/local/lib/ruby/gems/2.3.0/gems/sass-3.4.21/lib/sass/tree/visitors/perform.rb:186:in `visit_root'
-/usr/local/lib/ruby/gems/2.3.0/gems/sass-3.4.21/lib/sass/tree/visitors/base.rb:36:in `visit'
-/usr/local/lib/ruby/gems/2.3.0/gems/sass-3.4.21/lib/sass/tree/visitors/perform.rb:157:in `visit'
-/usr/local/lib/ruby/gems/2.3.0/gems/sass-3.4.21/lib/sass/tree/visitors/perform.rb:8:in `visit'
-/usr/local/lib/ruby/gems/2.3.0/gems/sass-3.4.21/lib/sass/tree/root_node.rb:36:in `css_tree'
-/usr/local/lib/ruby/gems/2.3.0/gems/sass-3.4.21/lib/sass/tree/root_node.rb:20:in `render'
-/usr/local/lib/ruby/gems/2.3.0/gems/sass-3.4.21/lib/sass/engine.rb:278:in `render'
-/usr/local/lib/ruby/gems/2.3.0/gems/sass-3.4.21/lib/sass/plugin/compiler.rb:492:in `update_stylesheet'
-/usr/local/lib/ruby/gems/2.3.0/gems/sass-3.4.21/lib/sass/plugin/compiler.rb:215:in `block in update_stylesheets'
-/usr/local/lib/ruby/gems/2.3.0/gems/sass-3.4.21/lib/sass/plugin/compiler.rb:209:in `each'
-/usr/local/lib/ruby/gems/2.3.0/gems/sass-3.4.21/lib/sass/plugin/compiler.rb:209:in `update_stylesheets'
-/usr/local/lib/ruby/gems/2.3.0/gems/sass-3.4.21/lib/sass/plugin.rb:82:in `update_stylesheets'
-/usr/local/lib/ruby/gems/2.3.0/gems/sass-3.4.21/lib/sass/exec/sass_scss.rb:363:in `watch_or_update'
-/usr/local/lib/ruby/gems/2.3.0/gems/sass-3.4.21/lib/sass/exec/sass_scss.rb:51:in `process_result'
-/usr/local/lib/ruby/gems/2.3.0/gems/sass-3.4.21/lib/sass/exec/base.rb:52:in `parse'
-/usr/local/lib/ruby/gems/2.3.0/gems/sass-3.4.21/lib/sass/exec/base.rb:19:in `parse!'
-/usr/local/lib/ruby/gems/2.3.0/gems/sass-3.4.21/bin/sass:13:in `<top (required)>'
-/usr/local/bin/sass:23:in `load'
-/usr/local/bin/sass:23:in `<main>'
-*/
-body:before {
-  white-space: pre;
-  font-family: monospace;
-  content: "Error: Undefined variable: \"$action-button\".\A         on line 33 of ./app/styles/EditUserPage.scss\A \A 28:     .button{\A 29:       font-size: 1.5rem;\A 30:       padding: 1rem 2rem;\A 31:       border-radius: 0.2rem;\A 32:       border: 1px solid;\A 33:       border-color: darken($action-button, 60%);\A 34:       background-color: $action-button;\A 35:       margin-right: 0.5rem;\A 36:       &:hover{\A 37:         cursor: pointer;\A 38:         background-color: $action-button-hover;"; }
+.EditUserPage {
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-flex-direction: column;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+.EditUserPage .section-title {
+  font-size: 4rem;
+  font-weight: bold;
+  margin: 2rem;
+}
+.EditUserPage .field-line {
+  width: 400px;
+  margin: 2rem;
+  font-size: 2rem;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-justify-content: flex-start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+}
+.EditUserPage .field-line .field-title {
+  width: 200px;
+  font-weight: bold;
+}
+.EditUserPage .field-line .field-title:after {
+  content: ':';
+}
+.EditUserPage .field-line.message {
+  color: #d3003e;
+}
+.EditUserPage .field-line-button {
+  width: 600px;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-justify-content: space-between;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+.EditUserPage .field-line-button .button {
+  font-size: 1.5rem;
+  padding: 1rem 2rem;
+  border-radius: 0.2rem;
+  border: 1px solid;
+  border-color: #633201;
+  background-color: #FECB98;
+  margin-right: 0.5rem;
+}
+.EditUserPage .field-line-button .button:hover {
+  cursor: pointer;
+  background-color: #F8A65A;
+}
+.EditUserPage .field-line-button .button.delete {
+  background-color: #FFD3E0;
+}
+.EditUserPage .field-line-button .button.delete:hover {
+  background-color: #ff6d98;
+}

@@ -35,13 +35,23 @@ var LoginStore = reflux.createStore({
       url:'/api/user/login',
       dataType: 'json',
       data:{
-        user: user,
+        username: user,
         password: password
       }
     }).done(function(data){
-      this.setState({userId: user});
-      localStorage.userId = user;
-      AppActions.getHomePage();
+      console.log(data, data === []);
+      if(data.length === 0){
+        this.setState({
+          loginError: 'Error occurred. Please try again.'
+        });
+        window.setTimeout(this.setState.bind(this, {loginError: ''}), 3000);
+      }else {
+        this.setState({
+          userId: user
+        });
+        localStorage.userId = user
+        AppActions.getHomePage();
+      }
     }.bind(this)).fail(function(error){
       this.setState({
         loginError: 'Error occurred. Please try again.'
@@ -50,25 +60,63 @@ var LoginStore = reflux.createStore({
     }.bind(this));
   },
   changeUserDetails(user){
-
+    $.ajax({
+     type: 'PUT',
+      url: '/api/user/' + user.user,
+      dataType: 'json',
+      data: {
+        email: user.email,
+        address: user.address,
+        avatar: ''
+      }
+    }).done(function(data){
+      this.setState({loginError: 'Changes saved Successfully!'});
+      window.setTimeout(function(){
+        this.setState({loginError: ''});
+        AppActions.getUserPage();
+      }.bind(this), 2000);
+    }.bind(this));
   },
   testPassword(user, oldPw, newPw){
+    console.log('chpw', user, oldPw, newPw);
     $.ajax({
       type: 'POST',
       url:'/api/user/login',
       dataType: 'json',
       data:{
-        user: user,
+        username: user,
         password: oldPw
       }
     }).done(function(data) {
-     //TODO: post new pw
-    }).fail(function(){
+     if(data.length === 0){
+       this.setState({
+         loginError: 'Your old password is wrong. Please try again.'
+       });
+       window.setTimeout(this.setState.bind(this, {loginError: ''}), 3000);
+     }else{
+       $.ajax({
+         type: 'POST',
+         url: '/api/user/password',
+         dataType: 'json',
+         data: {
+           username: user,
+           password: newPw,
+           oldPassword: oldPw
+         }
+       }).done(function(data){
+         this.setState({loginError: 'Password changed!'});
+         window.setTimeout(function(){
+           this.setState({loginError: ''});
+           AppActions.getUserPage();
+         }.bind(this), 2000);
+       }.bind(this));
+     }
+    }.bind(this)).fail(function(){
       this.setState({
         loginError: 'Your old password is wrong. Please try again.'
       });
       window.setTimeout(this.setState.bind(this, {loginError: ''}), 3000);
-    });
+    }.bind(this));
   },
   signupUser(user, password, email, file, address){
     console.log(user, password, email, file, address);

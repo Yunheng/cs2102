@@ -7883,6 +7883,9 @@ button.close {
 .EditUserPage .field-line .field-title:after {
   content: ':';
 }
+.EditUserPage .field-line.message {
+  color: #d3003e;
+}
 .EditUserPage .field-line-button {
   width: 600px;
   display: -webkit-flex;
