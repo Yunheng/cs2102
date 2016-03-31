@@ -41,7 +41,7 @@ class ProjectController extends Controller
      * GET /api/project
      */
     public function index() {
-      $results = DB::select("SELECT * FROM \"project\"");
+      $results = DB::select("SELECT * FROM \"project\" ORDER BY date_created DESC");
       return response()->json($results);
     }
 
