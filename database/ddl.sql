@@ -14,15 +14,6 @@ CREATE TABLE Project(
 	status CHAR(8) CHECK (status = 'ONGOING' OR status = 'COMPLETE' OR status = 'REVOKED')
 );
 
-CREATE TABLE Project_Reward(
-	name VARCHAR(64),
-	project INTEGER REFERENCES Project(id),
-	description TEXT NOT NULL,
-	maxBackers INTEGER CHECK(maxBackers IS NULL OR maxBackers > 0),
-	minAmount NUMERIC CHECK(minAmount > 0.0),
-	PRIMARY KEY(name, project)
-);
-
 CREATE TABLE "user" (
 	username VARCHAR(32) PRIMARY KEY,
 	password CHAR(40) NOT NULL,
@@ -44,8 +35,6 @@ CREATE TABLE Project_Backer(
 	member VARCHAR(32) REFERENCES "user"(username),
 	project INTEGER REFERENCES Project(id),
 	amount NUMERIC,
-	reward VARCHAR(64),
-	FOREIGN KEY (reward, project) REFERENCES Project_Reward(name, project),
 	PRIMARY KEY (member, project)
 );
 
