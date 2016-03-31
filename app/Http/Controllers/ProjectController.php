@@ -49,10 +49,16 @@ class ProjectController extends Controller
      * URL route for deleting an existing project
      * DELETE /api/project/{project}
      */
-    public function delete($project) {
-      $results = DB::delete("DELETE FROM project WHERE id = :projectId", [
+    public function delete(Request $request, $project) {
+      DB::statement('BEGIN TRANSACTION');
+      DB::update("UPDATE project SET status = 'REVOKED' WHERE id = :projectId", [
           'projectId'   => $project
       ]);
+      $backers = DB::select("SELECT * FROM project_backer WHERE project = :project", ['project' => $project]);
+      foreach($backer as $backers) {
+        app('App\Http\Controllers\UserTransactionController')->store($request, $backer->member, 'Debit');
+      }
+      DB::statement('COMMIT');
       return response()->json($results);
     }
 }
