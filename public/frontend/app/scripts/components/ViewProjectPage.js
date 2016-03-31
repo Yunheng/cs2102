@@ -44,6 +44,9 @@ var ViewProjectPage = React.createClass({
     AppStateAction.getUserPage();
     }, 500);
   },
+  fundClick(){
+    AppStateAction.getFundProjectPage();
+  },
   renderComments(){
     return this.state.comments.map(function(comment){
       return (

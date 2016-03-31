@@ -9,12 +9,16 @@ var FundingSidebar = React.createClass({
     var displayButton = this.props.displayButton;
     return (
       <div className="FundingSidebar">
-        <div className="project-info">
-          <div className="project-location">
-            Location: <span className="info">{project.city}, {project.country}</span>
-          </div>
-          <div className="project-category">
-            Category: <span className="info">{project.category}</span>
+
+        <div className="side-info">
+          {this.props.projectName ? <div className="project-name">{project.title}</div> : null}
+          <div className="project-subinfo">
+            <div className="project-location">
+              Location: <span className="info">{project.city}, {project.country}</span>
+            </div>
+            <div className="project-category">
+              Category: <span className="info">{project.category}</span>
+            </div>
           </div>
         </div>
         <div className="amount">

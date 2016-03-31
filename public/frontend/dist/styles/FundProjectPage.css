@@ -1,0 +1,64 @@
+.FundProjectPage {
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  padding: 2rem 15rem;
+}
+.FundProjectPage .section {
+  margin-right: 2rem;
+  -webkit-flex-basis: 70%;
+      -ms-flex-preferred-size: 70%;
+          flex-basis: 70%;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+.FundProjectPage .section .section-title {
+  font-weight: bold;
+  font-size: 6rem;
+}
+.FundProjectPage .section .amount {
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  font-size: 6rem;
+}
+.FundProjectPage input[type=number]::-webkit-inner-spin-button,
+.FundProjectPage input[type=number]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+.FundProjectPage .section-title-small {
+  padding-top: 1.5rem;
+  border-top: 1px solid #d6DFE2;
+  font-size: 4rem;
+  margin-top: 4rem;
+}
+.FundProjectPage .field-title {
+  margin-left: 2.5rem;
+  font-size: 2.5rem;
+  margin-top: 2rem;
+}
+.FundProjectPage .field {
+  margin-left: 2.5rem;
+  font-size: 2.5rem;
+  font-weight: bold;
+}
+.FundProjectPage .button {
+  margin-top: 2rem;
+  font-size: 4rem;
+  font-weight: bold;
+  padding: 1.5rem 2rem;
+  border-radius: 0.2rem;
+  text-align: center;
+  border: 1px solid;
+  border-color: #633201;
+  background-color: #FECB98;
+}
+.FundProjectPage .button:hover {
+  cursor: pointer;
+  background-color: #F8A65A;
+}

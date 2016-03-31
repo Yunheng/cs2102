@@ -1,0 +1,56 @@
+@import '_colors';
+
+.FundProjectPage{
+  display: flex;
+  padding: 2rem 15rem;
+  .section{
+    margin-right: 2rem;
+    flex-basis: 70%;
+    display: flex;
+    flex-direction:column;
+    .section-title{
+      font-weight: bold;
+      font-size: 6rem;
+    }
+    .amount{
+      display: flex;
+      font-size: 6rem;
+    }
+  }
+  input[type=number]::-webkit-inner-spin-button,
+  input[type=number]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+  .section-title-small{
+    padding-top: 1.5rem;
+    border-top: 1px solid $border-color-grey;
+    font-size: 4rem;
+    margin-top: 4rem;
+  }
+  .field-title{
+    margin-left: 2.5rem;
+    font-size: 2.5rem;
+    margin-top: 2rem;
+  }
+  .field{
+    margin-left: 2.5rem;
+    font-size: 2.5rem;
+    font-weight: bold;
+  }
+  .button{
+    margin-top: 2rem;
+    font-size: 4rem;
+    font-weight: bold;
+    padding: 1.5rem 2rem;
+    border-radius: 0.2rem;
+    text-align: center;
+    border: 1px solid;
+    border-color: darken($action-button, 60%);
+    background-color: $action-button;
+    &:hover{
+      cursor: pointer;
+      background-color: $action-button-hover;
+    }
+  }
+}

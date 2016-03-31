@@ -1,20 +1,28 @@
 @import '_colors';
 
 .FundingSidebar{
-  font-size: 1.5rem;
+  font-size: 2rem;
   flex-basis: 30%;
   padding-left: 1.5rem;
   border-left: solid 1px $border-color-grey;
-  .project-info{
-    display: flex;
+  .side-info{
+    border-top: 1px solid $border-color-darkgrey;
     border-left: 1px solid $border-color-darkgrey;
     border-right: 1px solid $border-color-darkgrey;
-    border-top: 1px solid darken($border-color-grey, 30%);
-    justify-content: space-between;
-    padding: 1rem;
-    font-size: 1.2rem;
+    font-weight: bold;
     background-color: $fund-header;
-    font-color: $fund-header-text;
+    padding: 1rem;
+    color: $fund-header-text;
+  }
+  .project-name{
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+  }
+  .project-subinfo{
+    font-size: 1.2rem;
+    display: flex;
+    justify-content: space-between;
+    background-color: $fund-header;
     .info{
       font-weight: bold;
     }
