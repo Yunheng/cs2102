@@ -17,7 +17,7 @@ CREATE TABLE Project_Reward(
 	project INTEGER REFERENCES Project(id),
 	description TEXT NOT NULL,
 	maxBackers INTEGER CHECK(maxBackers IS NULL OR maxBackers > 0),
-	minAmount MONEY CHECK(minAmount > 0.0),
+	minAmount NUMERIC CHECK(minAmount > 0.0),
 	PRIMARY KEY(name, project)
 );
 
@@ -41,7 +41,7 @@ CREATE TABLE Project_Owner(
 CREATE TABLE Project_Backer(
 	member VARCHAR(32) REFERENCES "user"(username),
 	project INTEGER REFERENCES Project(id),
-	amount MONEY,
+	amount NUMERIC,
 	reward VARCHAR(64),
 	FOREIGN KEY (reward, project) REFERENCES Project_Reward(name, project),
 	PRIMARY KEY (member, project)
