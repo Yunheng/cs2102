@@ -27,7 +27,7 @@ var ProjectStore = reflux.createStore({
        userProjects: this.state.projects.filter(function(proj){
          for(var userProj in data){
 
-           if(data[userProj].project === proj.id){
+           if(data[userProj].id === proj.id){
              return true;
            }
          }

@@ -10,3 +10,7 @@ module.exports.range = function(num1, num2) {
   }
   return array;
 };
+
+module.exports.calculateDaysPassed = function(start, end){
+  return end.diff(start, 'days');
+};

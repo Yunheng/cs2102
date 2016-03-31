@@ -11,10 +11,13 @@ $TopBarBG: map_get($palette, grey1);
 $button-hover: map_get($palette, beige1);
 $error: darken(map_get($palette, pink1), 50%);
 $border-color-grey: map_get($palette, grey1);
+$border-color-darkgrey: darken(map_get($palette, grey1), 30%);
 $cancel-button: map_get($palette, grey1);
 $cancel-button-hover: darken($cancel-button, 30%);
 $action-button: map_get($palette, orange1);
 $action-button-hover: map_get($palette, orange2);
+$fund-header: darken(map_get($palette, orange2), 10%);
+$fund-header-text: map_get($palette, beige1);
 
 $delete-button: map_get($palette, pink1);
 $delete-button-hover: darken(map_get($palette, pink1), 20%);
