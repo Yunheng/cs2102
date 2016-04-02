@@ -15,13 +15,13 @@ class TransactionController extends Controller
    * POST /api/transaction
    */
   public function store(Request $request) {
-    $results = DB::select("INSERT INTO \"transaction\" (code, type, amount, \"user\") VALUES (random_string(12), :type, :amount, :user) RETURNING code", [
+    DB::select("INSERT INTO \"transaction\" (code, type, amount, \"user\") VALUES (random_string(12), :type, :amount, :user) RETURNING code", [
       'type'  => 'Credit',
       'amount' => $request->input('amount'),
       'user' => $request->input('user')
     ]);
-    app('App\Http\Controllers\ReceiptController')->store($request, $results[0]->code);
-    return response()->json($results[0]);
+    $result = app('App\Http\Controllers\ReceiptController')->store($request, $results[0]->code);
+    return $result;
   }
 
 }

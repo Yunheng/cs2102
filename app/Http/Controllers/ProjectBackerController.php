@@ -27,14 +27,14 @@ class ProjectBackerController extends Controller
      */
     public function store(Request $request, $project) {
       DB::statement('BEGIN TRANSACTION');
-      $results = DB::insert("INSERT INTO \"project_backer\" (member, project, amount) VALUES (:user, :project, :amt)", [
+      DB::insert("INSERT INTO \"project_backer\" (member, project, amount) VALUES (:user, :project, :amt)", [
         'amt'  => $request->input('amount'),
         'user' => $request->input('user'),
         'project' => $project
       ]);
-      app('App\Http\Controllers\TransactionController')->store($request);
+      $result = app('App\Http\Controllers\TransactionController')->store($request);
       DB::statement('COMMIT');
-      return response()->json($results);
+      return response()->json($result);
     }
 
     /**
