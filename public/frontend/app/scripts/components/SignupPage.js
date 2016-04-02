@@ -37,12 +37,6 @@ var SignupPage = React.createClass({
                 <input type="address" id="address"/>
               </div>
             }
-            {isLogin ? null :
-              <div className="form-line">
-                <span className="line-text">choose image:</span>
-                <input type="file" id="file"/>
-              </div>
-            }
             <button className="submit" onClick={this.handleClick.bind(this, isLogin)}>{isLogin ? 'Login' : 'Signup'}</button>
             {this.state && this.state.loginError ? <div className="error">{this.state.loginError}</div> : null}
           </div>
@@ -63,7 +57,7 @@ var SignupPage = React.createClass({
        $('#username').val(),
        $('#password').val(),
        $('#email').val(),
-        $('#file').prop('files')[0],
+        // $('#file').prop('files')[0],
        $('#address').val()
       );
     }

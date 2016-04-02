@@ -43,7 +43,6 @@ var ProjectStore = reflux.createStore({
       type: 'DELETE',
       url: '/api/project/' + project.id
     }).done(function(data){
-      console.log('here');
       fn(true);
     });
   },
@@ -157,11 +156,14 @@ var ProjectStore = reflux.createStore({
     AppStateAction.getEditProjectPage();
   },
   viewProject(project){
-    this.setState({selectedProject: project});
-    ProjectAction.retrieveProjectComments(project);
+    var proj = this.state.projects.filter(function(p){
+      return p.id === project.id;
+    })[0];
+    this.setState({selectedProject: proj});
+    ProjectAction.retrieveProjectComments(proj);
     AppStateAction.getViewProjectPage();
   },
-  fundProject(args){
+  fundProject(args, fn){
     // console.log(args);
     $.ajax({
       type: 'POST',
@@ -174,7 +176,9 @@ var ProjectStore = reflux.createStore({
       }
     }).done(function(data){
       console.log(data);
-    })
+      args.receiptNo = data;
+      fn(args);
+    }.bind(this))
   }
 });
 

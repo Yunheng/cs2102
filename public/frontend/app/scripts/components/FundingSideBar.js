@@ -8,6 +8,8 @@ var FundingSidebar = React.createClass({
   render(){
     var project = this.props.project;
     var displayButton = this.props.displayButton;
+    var projectAmt = project.totalamt ? project.totalamt : 0;
+    if(this.props.manualIncrement) projectAmt += this.props.manualIncrement;
     return (
       <div className="FundingSidebar">
 
@@ -23,7 +25,7 @@ var FundingSidebar = React.createClass({
           </div>
         </div>
         <div className="amount">
-          <div className="raised">${project.totalamt ? project.totalamt : 0}</div>
+          <div className="raised">${projectAmt}</div>
           <span className="of">of</span>
           <div className="target">${project.targetamount}</div>
         </div>
@@ -42,8 +44,8 @@ var FundingSidebar = React.createClass({
             <div className="stat-text">day(s)</div>
           </div>
         </div>
-        {displayButton && this.props.loggedIn ? <div className="fund-me button" onClick={this.props.onClick}>Fund This</div> : null}
-        {!this.props.loggedIn ? <div className="log-in button" onClick={AppAction.getLoginPage}>Login To Fund This Project</div> : null}
+        {displayButton && this.props.loggedIn ? <div className="fund-me button" onClick={this.props.onClick}>Back This</div> : null}
+        {!this.props.loggedIn ? <div className="log-in button" onClick={AppAction.getLoginPage}>Login To Back This Project</div> : null}
       </div>
     );
   }

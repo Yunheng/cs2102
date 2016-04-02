@@ -24,12 +24,19 @@ var ViewUserPage = React.createClass({
   },
   render(){
     var user = this.state.selectedUser;
-    var list = this.state.projects.filter(function(project) {
+    var createdList = this.state.projects.filter(function(project) {
       return project.owners.some(function(owner){
         var user= owner.member ? owner.member : owner.username;
         return user === this.state.selectedUser.username;
       }.bind(this));
     }.bind(this));
+
+    var backedList = this.state.projects.filter(function(project){
+      return this.state.selectedUser.backing.some(function(backed){
+        return backed.id === project.id;
+      }.bind(this));
+    }.bind(this));
+
     return (
      <div className="ViewUserPage">
        <div className="section-title">User Profile</div>
@@ -37,6 +44,7 @@ var ViewUserPage = React.createClass({
          <div className="edit-user">
           <div className="edit-details button" onClick={this.editUser}>Edit details</div>
           <div className="change-pw button" onClick={this.changePw}>Change Password</div>
+           <div className="View-xact button" onClick={this.viewXact}>View Transactions</div>
          </div>
          : null}
        <div className="user-details">
@@ -53,8 +61,11 @@ var ViewUserPage = React.createClass({
            <span className="email">{user.address}</span>
          </div>
        </div>
-       <div className="section-title">Projects Involved</div>
-       <ViewProjectsList list={list}/>
+       {createdList.length ? <div className="section-title">Projects Involved</div> : null}
+       <ViewProjectsList list={createdList}/>
+       {this.state.selectedUser.backing.length ? <div className="section-title">Projects Backed</div> : null}
+       <ViewProjectsList list={backedList}/>
+
      </div>
     );
   }

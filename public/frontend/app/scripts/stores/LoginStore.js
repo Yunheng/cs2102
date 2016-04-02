@@ -118,8 +118,8 @@ var LoginStore = reflux.createStore({
       window.setTimeout(this.setState.bind(this, {loginError: ''}), 3000);
     }.bind(this));
   },
-  signupUser(user, password, email, file, address){
-    console.log(user, password, email, file, address);
+  signupUser(user, password, email, address){
+    console.log(user, password, email, address);
     var form_data = new FormData();
     form_data.append('username', user);
     form_data.append('password', password);
