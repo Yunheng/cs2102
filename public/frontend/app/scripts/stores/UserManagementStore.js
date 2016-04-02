@@ -32,15 +32,24 @@ var UserManagementStore = reflux.createStore({
   },
   getUsers(){
     // console.log('get users');
-    $.get('/api/users')
+    var users;
+    $.when($.get('/api/users')
       .done(function(data){
-      // console.log(data);
-        this.setState({users: data});
+      console.log(data);
+        users = data;
+        data.forEach(function(user, i){
+          $.get('/api/user/' + user.username +'/backing').done(function(backing){
+            users[i].backing = backing;
+          });
+        });
     }.bind(this))
       .fail(function(error){
 
       }.bind(this)
-    );
+    )).then(function(){
+      console.log(users);
+      this.setState({users: users});
+    }.bind(this));
   }
 });
 

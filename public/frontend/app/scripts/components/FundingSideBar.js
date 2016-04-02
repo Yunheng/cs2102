@@ -1,5 +1,6 @@
 var React = require('react');
 var moment = require('moment');
+var AppAction = require('../actions/AppStateAction');
 import {calculateDaysPassed} from '../utils';
 
 
@@ -41,7 +42,8 @@ var FundingSidebar = React.createClass({
             <div className="stat-text">day(s)</div>
           </div>
         </div>
-        {displayButton ? <div className="fund-me button" onClick={this.props.onClick}>Fund This</div> : null}
+        {displayButton && this.props.loggedIn ? <div className="fund-me button" onClick={this.props.onClick}>Fund This</div> : null}
+        {!this.props.loggedIn ? <div className="log-in button" onClick={AppAction.getLoginPage}>Login To Fund This Project</div> : null}
       </div>
     );
   }

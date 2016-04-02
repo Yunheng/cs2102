@@ -16,6 +16,7 @@ import UserManagement from './components/UserManagementPage';
 import UserProjectsPage from './components/UserProjectsPage';
 import HomePage from './components/HomePage';
 import ViewProjectPage from './components/ViewProjectPage';
+import BrowseProjectsPage from './components/BrowseProjectsPage';
 
 var App = React.createClass({
   mixins: [StateMixin.connect(AppStateStore)],
@@ -40,7 +41,8 @@ var App = React.createClass({
       case 'UserPage': return <ViewUserPage/>;
       case 'EditUser': return <EditUserPage state="EditUser"/>;
       case 'ChangePw': return <EditUserPage state="ChangePw"/>;
-      case 'FundProject': return <FundProjectPage/>
+      case 'FundProject': return <FundProjectPage/>;
+      case 'BrowseProjects': return <BrowseProjectsPage/>;
       default: return <div className="error">Oops, something went wrong!</div>;
     }
   }

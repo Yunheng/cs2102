@@ -7614,6 +7614,7 @@ button.close {
   text-align: center;
 }
 .HomePage .projects {
+  margin-bottom: 10rem;
   border-top: solid 2px #d6DFE2;
 }
 .HomePage .projects .section-title {
@@ -7621,6 +7622,26 @@ button.close {
   font-size: 5rem;
   font-weight: bold;
   text-align: center;
+}
+.HomePage .projects .sub-section-title {
+  font-size: 3rem;
+  font-weight: bold;
+  margin-top: 1rem;
+}
+.HomePage .projects .button {
+  padding: 1rem 2rem;
+  width: 17rem;
+  font-size: 2rem;
+  text-align: center;
+  font-weight: bold;
+  border-radius: 0.2rem;
+  border: 1px solid;
+  border-color: #633201;
+  background-color: #FECB98;
+}
+.HomePage .projects .button:hover {
+  cursor: pointer;
+  background-color: #F8A65A;
 }
 
 .ViewProjectPage {
@@ -8150,6 +8171,22 @@ body {
 .FundProjectPage .button:hover {
   cursor: pointer;
   background-color: #F8A65A;
+}
+
+.BrowserProjectsPage {
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+.BrowserProjectsPage .title {
+  font-size: 6rem;
+  font-weight: bold;
 }
 
 .browsehappy {

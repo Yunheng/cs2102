@@ -4,10 +4,14 @@ var StateMixin = require('reflux-state-mixin')(reflux);
 var ProjectsStore = require('../stores/ProjectStore');
 var ViewProjectsList = require('./ViewProjectsList');
 var ProjectAction = require('../actions/ProjectAction');
+var AppAction = require('../actions/AppStateAction');
 var HomePage = React.createClass({
   mixins: [StateMixin.connect(ProjectsStore)],
   componentDidMount(){
     ProjectAction.retrieveProjects();
+  },
+  viewAllProjects(){
+    AppAction.getBrowseProjectsPage();
   },
   render(){
     // console.log(this.state);
@@ -23,7 +27,11 @@ var HomePage = React.createClass({
         </div>
         <div className="projects">
           <div className="section-title">Browse Projects</div>
-          <ViewProjectsList list={this.state.projects} limit={10}/>
+          <div className="sub-section-title">Most Popular</div>
+          <ViewProjectsList list={this.state.mostPopularProjects} limit={10}/>
+          <div className="sub-section-title">Newest</div>
+          <ViewProjectsList list={this.state.newestProjects} limit={10}/>
+          <div className="browse all button" onClick={this.viewAllProjects}>Browse all</div>
         </div>
       </div>
     );

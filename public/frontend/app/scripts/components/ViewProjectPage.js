@@ -105,7 +105,7 @@ var ViewProjectPage = React.createClass({
             </div>
 
           </div>
-          <FundingSidebar project={project} displayButton={true} onClick={this.fundClick}/>
+          <FundingSidebar project={project} displayButton={true} onClick={this.fundClick} loggedIn={this.state.userId}/>
         </div>
       );
     }

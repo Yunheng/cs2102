@@ -19,7 +19,7 @@ var ViewProjectsList = React.createClass({
           <div className="place">{project.city + ', ' + project.country}</div>
           <div className="grow"></div>
 
-          <div className="raised"><span className="text">raised</span>${project.totalAmt ? project.totalAmt : 0}</div>
+          <div className="raised"><span className="text">raised</span>${project.totalamt ? project.totalamt : 0}</div>
           <div className="days">{calculateDaysPassed(moment(), moment(project.date_close))} day(s) left</div>
         </div>
       );

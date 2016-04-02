@@ -19,12 +19,33 @@
     }
   }
   .projects{
+    margin-bottom: 10rem;
     border-top: solid 2px $border-color-grey;
     .section-title{
       margin-top: 1rem;
       font-size: 5rem;
       font-weight: bold;
       text-align: center;
+    }
+    .sub-section-title{
+      font-size: 3rem;
+      font-weight: bold;
+      margin-top: 1rem;
+    }
+    .button{
+      padding: 1rem 2rem;
+      width: 17rem;
+      font-size: 2rem;
+      text-align: center;
+      font-weight: bold;
+      border-radius: 0.2rem;
+      border: 1px solid;
+      border-color: darken($action-button, 60%);
+      background-color: $action-button;
+      &:hover{
+        cursor: pointer;
+        background-color: $action-button-hover;
+      }
     }
   }
 }

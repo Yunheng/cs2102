@@ -13,6 +13,8 @@ var ProjectStore = reflux.createStore({
     return ({
       userProjects: [],
       projects: [],
+      mostPopularProjects: [],
+      newestProjects: [],
       selectedProject: {}
     });
   },
@@ -63,7 +65,53 @@ var ProjectStore = reflux.createStore({
       console.log('projects', projData);
       this.setState({projects: projData});
     }.bind(this));
+    var popProj;
+    $.when($.ajax({
+      type: 'GET',
+      url: '/api/project',
+      dataType: 'json',
+      data: {
+        view: 'popular'
+      }
+    }).done(function(data){
+      popProj = data;
+      popProj.map(function(proj, i){
+        $.ajax({
+          type: 'GET',
+          url: '/api/project/' + proj.id + '/owner',
+          dataType: 'json'
+        }).done(function(data){
+          popProj[i].owners = data;
+        });
+      });
+    })).then(function(){
+      console.log('projects', popProj);
+      this.setState({mostPopularProjects: popProj});
+    }.bind(this));
 
+    var newProj;
+    $.when($.ajax({
+      type: 'GET',
+      url: '/api/project',
+      dataType: 'json',
+      data: {
+        view: 'newest'
+      }
+    }).done(function(data){
+      newProj = data;
+      newProj.map(function(proj, i){
+        $.ajax({
+          type: 'GET',
+          url: '/api/project/' + proj.id + '/owner',
+          dataType: 'json'
+        }).done(function(data){
+          newProj[i].owners = data;
+        });
+      });
+    })).then(function(){
+      console.log('projects', newProj);
+      this.setState({newestProjects: newProj});
+    }.bind(this));
   },
   updateProject(){
 
@@ -111,7 +159,19 @@ var ProjectStore = reflux.createStore({
     AppStateAction.getViewProjectPage();
   },
   fundProject(args){
-    
+    // console.log(args);
+    $.ajax({
+      type: 'POST',
+      url: '/api/project/' + args.project + '/backer',
+      dataType: 'json',
+      data: {
+        amount: args.amt,
+        user: args.username,
+        address: args.address
+      }
+    }).done(function(data){
+      console.log(data);
+    })
   }
 });
 
