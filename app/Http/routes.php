@@ -49,11 +49,14 @@ Route::group(['prefix' => 'api'], function () {
   Route::resource('user.transaction', 'UserTransactionController',
     ['only' => ['index']]);
 
-  Route::resource('transaction', 'TransactionController',
-    ['only' => ['store']]);
-
   Route::resource('user.project', 'UserProjectController',
     ['only' => ['index']]);
+
+  Route::resource('user.backing', 'UserBackingController',
+    ['only' => ['index']]);
+
+  Route::resource('transaction', 'TransactionController',
+    ['only' => ['store']]);
 
   Route::post('/user/login', 'UserController@login');
   Route::post('/user/password', 'UserController@changePassword');
