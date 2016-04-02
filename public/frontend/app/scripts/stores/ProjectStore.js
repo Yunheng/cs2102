@@ -38,10 +38,13 @@ var ProjectStore = reflux.createStore({
      });
    }.bind(this));
   },
-  deleteProject(project){
+  deleteProject(project, fn){
     $.ajax({
       type: 'DELETE',
       url: '/api/project/' + project.id
+    }).done(function(data){
+      console.log('here');
+      fn(true);
     });
   },
   retrieveProjects(){

@@ -17,6 +17,9 @@ var ViewProjectPage = React.createClass({
     StateMixin.connect(LoginStore),
     StateMixin.connect(CommentStore)
   ],
+  getInitialState(){
+    return {msg: ''};
+  },
   verifyUser(type){
     if(type === 'login') AppStateAction.getLoginPage();
     else AppStateAction.getSignupPage();
@@ -35,6 +38,17 @@ var ViewProjectPage = React.createClass({
       project: this.state.selectedProject,
       commenter: this.state.userId
     });
+  },
+  deleteProject(proj){
+    ProjectAction.deleteProject(proj, function(result){
+        if(result){
+          console.log('return');
+          this.setState({msg: 'Project Deleted. Redirecting to home page...'});
+          window.setTimeout(function(){
+            AppStateAction.getHomePage();
+          }, 2500);
+        }
+    }.bind(this));
   },
   userClick(user){
     console.log('userClick');
@@ -65,10 +79,11 @@ var ViewProjectPage = React.createClass({
       return (
         <div className="ViewProjectPage">
           <div className="project-info">
+            {this.state.msg ? <div className="msg">{this.state.msg}</div> : null}
             {this.userIsOwner() ?
               <div className="user-control">
                 <div className="edit button" onClick={ProjectAction.editProject}>Edit Project</div>
-                <div className="delete button" onClick={ProjectAction.deleteProject.bind(this, this.state.selectedProject)}>Delete Project</div>
+                <div className="delete button" onClick={this.deleteProject.bind(this, this.state.selectedProject)}>Delete Project</div>
               </div>
               :
               null
