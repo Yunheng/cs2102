@@ -49,10 +49,10 @@ class ProjectController extends Controller
       }
       switch($view) {
         case 'popular':
-          $results = DB::select("SELECT p.*, SUM(b.amount) AS totalAmt, COUNT(b.*) as backers, SUM(b.amount)/COUNT(b.*) AS AmtPerBacker FROM project as p LEFT JOIN project_backer as b ON p.id = b.project WHERE (status = 'ONGOING') GROUP BY p.id ORDER BY backers DESC, AmtPerBacker DESC");
+          $results = DB::select("SELECT p.*, SUM(b.amount) AS totalAmt, COUNT(b.*) as backers, SUM(b.amount)/COUNT(b.*) AS AmtPerBacker FROM project as p LEFT JOIN project_backer as b ON p.id = b.project WHERE (status = 'ONGOING') GROUP BY p.id ORDER BY backers DESC, AmtPerBacker DESC LIMIT 4");
           break;
         case 'newest':
-          $results = DB::select("SELECT p.*, SUM(b.amount) as totalAmt, COUNT(b.*) as backers FROM project as p LEFT JOIN project_backer as b ON p.id = b.project WHERE (status = 'ONGOING') GROUP BY p.id ORDER BY p.date_created DESC");
+          $results = DB::select("SELECT p.*, SUM(b.amount) as totalAmt, COUNT(b.*) as backers FROM project as p LEFT JOIN project_backer as b ON p.id = b.project WHERE (status = 'ONGOING') GROUP BY p.id ORDER BY p.date_created DESC LIMIT 4");
           break;
         default:
           $results = DB::select("SELECT p.*, SUM(b.amount) as totalAmt, COUNT(b.*) as backers FROM project as p LEFT JOIN project_backer as b ON p.id = b.project WHERE (status = 'ONGOING') GROUP BY p.id ORDER BY p.date_close ASC");
