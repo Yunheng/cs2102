@@ -2,7 +2,8 @@ var reflux = require('Reflux');
 
 var UserAction = reflux.createActions([
   'selectUser',
-  'selectUserById'
+  'selectUserById',
+  'getUserTransactions'
 ]);
 
 module.exports = UserAction;

@@ -13,7 +13,8 @@ var AppStateAction = reflux.createActions([
   'getEditUserPage',
   'getChangePwPage',
   'getFundProjectPage',
-  'getBrowseProjectsPage'
+  'getBrowseProjectsPage',
+  'getUserTransactionPage'
 ]);
 
 module.exports = AppStateAction;
