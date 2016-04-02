@@ -18,7 +18,7 @@ var TopBar = React.createClass({
     return (
       <div className="TopBar">
         <div className="logo">
-          <div className="logo-mount"></div>
+          <div className="logo-mount" onClick={AppActions.getHomePage}></div>
         </div>
         {!this.state.userId ?
         <div className="user-action">
