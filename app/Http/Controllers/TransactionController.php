@@ -15,7 +15,7 @@ class TransactionController extends Controller
    * POST /api/transaction
    */
   public function store(Request $request) {
-    DB::select("INSERT INTO \"transaction\" (code, type, amount, \"user\") VALUES (random_string(12), :type, :amount, :user) RETURNING code", [
+    $results = DB::select("INSERT INTO \"transaction\" (code, type, amount, \"user\") VALUES (random_string(12), :type, :amount, :user) RETURNING code", [
       'type'  => 'Credit',
       'amount' => $request->input('amount'),
       'user' => $request->input('user')

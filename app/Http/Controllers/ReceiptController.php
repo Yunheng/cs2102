@@ -16,6 +16,6 @@ class ReceiptController extends Controller
       'amount' => $request->input('amount'),
       'transaction' => $transaction
     ]);
-    return $results[0]->receiptNo;
+    return $results[0]->receiptno;
   }
 }
