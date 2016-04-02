@@ -5,6 +5,7 @@ var UserManagementStore = require('../stores/UserManagementStore');
 var ProjectStore = require('../stores/ProjectStore');
 var LoginStore = require('../stores/LoginStore');
 var AppStateAction = require('../actions/AppStateAction');
+var UserAction = require('../actions/UserAction');
 var ViewProjectsList = require('./ViewProjectsList');
 
 var ViewUserPage = React.createClass({
@@ -21,6 +22,11 @@ var ViewUserPage = React.createClass({
   },
   isUser(){
     return this.state.userId === this.state.selectedUser.username;
+  },
+  viewXact(){
+
+    UserAction.getUserTransactions(this.state.userId);
+    AppStateAction.getUserTransactionPage();
   },
   render(){
     var user = this.state.selectedUser;
