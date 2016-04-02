@@ -42,8 +42,22 @@ class ProjectController extends Controller
      * URL route for fetching all projects
      * GET /api/project
      */
-    public function index() {
-      $results = DB::select("SELECT p.*, SUM(b.amount) as totalAmt, COUNT(b.*) as backers FROM project as p LEFT JOIN project_backer as b ON p.id = b.project WHERE (status = 'ONGOING' OR status = 'COMPLETE') GROUP BY p.id ORDER BY p.date_created DESC");
+    public function index(Request $request) {
+      $view = 'default';
+      if ($request->has('view')) {
+        $view = $request->input('view');
+      }
+      switch($view) {
+        case 'popular':
+          $results = DB::select("SELECT p.*, SUM(b.amount) AS totalAmt, COUNT(b.*) as backers, SUM(b.amount)/COUNT(b.*) AS AmtPerBacker FROM project as p LEFT JOIN project_backer as b ON p.id = b.project WHERE (status = 'ONGOING') GROUP BY p.id ORDER BY backers DESC, AmtPerBacker DESC");
+          break;
+        case 'newest':
+          $results = DB::select("SELECT p.*, SUM(b.amount) as totalAmt, COUNT(b.*) as backers FROM project as p LEFT JOIN project_backer as b ON p.id = b.project WHERE (status = 'ONGOING') GROUP BY p.id ORDER BY p.date_created DESC");
+          break;
+        default:
+          $results = DB::select("SELECT p.*, SUM(b.amount) as totalAmt, COUNT(b.*) as backers FROM project as p LEFT JOIN project_backer as b ON p.id = b.project WHERE (status = 'ONGOING') GROUP BY p.id ORDER BY p.date_close ASC");
+          break;
+      }
       return response()->json($results);
     }
 
