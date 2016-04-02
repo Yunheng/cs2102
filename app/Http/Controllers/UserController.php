@@ -71,7 +71,7 @@ class UserController extends Controller
 
       // check if we actually have a user found
       if (count($results) > 0) {
-        DB::update('UPDATE \"user\" SET last_login = NOW() WHERE username = :username', [
+        DB::update("UPDATE \"user\" SET last_login = NOW() WHERE username = :username", [
           'username' => $request->input('username')
         ]);
       }

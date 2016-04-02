@@ -15,7 +15,7 @@ class UserBackingController extends Controller
      * GET /api/user/{userId}/backing
      */
     public function index($user) {
-      $results = DB::select("SELECT p.* FROM project_backer as b, project as p WHERE b.project = p.id AND b.member = :username ORDER BY p.date_created DESC, [
+      $results = DB::select("SELECT p.* FROM project_backer as b, project as p WHERE b.project = p.id AND b.member = :username ORDER BY p.date_created DESC", [
         'username' => $user
       ]);
       return response()->json($results);
