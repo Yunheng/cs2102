@@ -15,8 +15,8 @@ var ViewProjectsList = React.createClass({
       return (
         <div className="project" key={i} onClick={ProjectAction.viewProject.bind(this, project)}>
           <div className="title">{project.title}</div>
-          <div className="description">{project.description}</div>
           <div className="place">{project.city + ', ' + project.country}</div>
+          <div className="description">{project.description}</div>
           <div className="grow"></div>
 
           <div className="raised"><span className="text">raised</span>${project.totalamt ? project.totalamt : 0}</div>

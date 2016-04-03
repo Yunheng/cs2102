@@ -6,6 +6,7 @@ var UserManagementStore = require('../stores/UserManagementStore');
 var $ = require('jquery');
 var AppStateAction = require('../actions/AppStateAction');
 var ProjectStore = require('../stores/ProjectStore');
+var ProjectAction = require('../actions/ProjectAction');
 var UserSelectBar = require('./UserSelectBar');
 var {countryCode} = require('../constants');
 
@@ -50,7 +51,7 @@ var EditProjectPage = React.createClass({
         country: $('#country').val(),
         city: $('#city').val(),
         category: $('#category').val(),
-        projectOwners: this.state.selectedUsers
+        id: this.state.selectedProject.id
       }
     );
   },
@@ -95,10 +96,6 @@ var EditProjectPage = React.createClass({
           <div className="form-line">
             <span className="line-text">Category:</span>
             <input type="text" id="category"/>
-          </div>
-          <div className="form-line">
-            <span className="line-text">Collaborators:</span>
-            <UserSelectBar onSelection={this.onSelectUser} deleteUser={this.deleteUser} selectedUsers={this.state.selectedUsers}/>
           </div>
           <div className="form-line">
             <div className="cancel button" onClick={this.cancel}>Cancel</div>

@@ -8,8 +8,8 @@ var FundingSidebar = React.createClass({
   render(){
     var project = this.props.project;
     var displayButton = this.props.displayButton;
-    var projectAmt = project.totalamt ? project.totalamt : 0;
-    if(this.props.manualIncrement) projectAmt += this.props.manualIncrement;
+    var projectAmt = project.totalamt ? Number(project.totalamt) : 0;
+    if(this.props.manualIncrement) projectAmt += Number(this.props.manualIncrement);
     projectAmt = Number(projectAmt);
     return (
       <div className="FundingSidebar">

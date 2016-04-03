@@ -42,6 +42,22 @@ class ProjectController extends Controller
       }
     }
 
+  /**
+   * URL route for updating an existing user
+   * PUT /api/user/{username}
+   */
+  public function update(Request $request, $project) {
+    $results = DB::update("UPDATE \"project\" SET title = :title, description = :description, country = :country, city = :city, category = :category  WHERE id = :id", [
+        'title'        => $request->input('title'),
+        'description'  => $request->input('description'),
+        'country'      => $request->input('country'),
+        'city'         => $request->input('city'),
+        'category'     => $request->input('category'),
+        'id'  => $project
+    ]);
+    return response()->json($results);
+  }
+
     /**
      * URL route for fetching all projects
      * GET /api/project

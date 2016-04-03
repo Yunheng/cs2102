@@ -115,8 +115,21 @@ var ProjectStore = reflux.createStore({
       this.setState({newestProjects: newProj});
     }.bind(this));
   },
-  updateProject(){
-
+  updateProject(args){
+    $.ajax({
+      type: 'PUT',
+      url: '/api/project/' + args.id,
+      dataType: 'json',
+      data: {
+        title: args.title,
+        description: args.description,
+        country: args.country,
+        city: args.city,
+        category: args.category
+      }
+    }).then(function(data){
+      
+    }.bind(this));
   },
   addNewProject(args){
     console.log(args);
