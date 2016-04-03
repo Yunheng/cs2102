@@ -12,10 +12,27 @@ var ViewTransactionPage = React.createClass({
   render(){
     return (
       <div className="ViewTransactionPage">
-        Your Transactions
-        <div className="xact-list">
-          
-        </div>
+        <div className="title">Your Transactions</div>
+          <table id="table">
+            <thead>
+            <tr>
+              <th>Transaction Code</th>
+              <th>amount</th>
+              <th>type</th>
+            </tr>
+            </thead>
+            <tbody>
+            {this.state.transactions.map(function(xact){
+              return(
+                <tr key={xact.code}>
+                  <th>{xact.code}</th>
+                  <th>{xact.amount}</th>
+                  <th>{xact.type}{xact.type == 'Debit ' ? '(refund)' : ''}</th>
+                </tr>
+              );
+            })}
+            </tbody>
+          </table>
       </div>
     );
   }

@@ -16,7 +16,7 @@ var TransactionStore = reflux.createStore({
       this.setState({
         transactions: data
       });
-    });
+    }.bind(this));
   }
 
 

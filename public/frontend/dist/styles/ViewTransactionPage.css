@@ -1,0 +1,26 @@
+.ViewTransactionPage {
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+.ViewTransactionPage .title {
+  font-size: 6rem;
+  font-weight: bold;
+}
+.ViewTransactionPage #table, .ViewTransactionPage td, .ViewTransactionPage th {
+  width: 60%;
+  border: 1px solid;
+}
+.ViewTransactionPage th, .ViewTransactionPage td {
+  padding: 0.5rem;
+}
+.ViewTransactionPage tbody th {
+  font-weight: normal;
+  text-align: left;
+}
