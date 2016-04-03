@@ -35,7 +35,11 @@ class ProjectController extends Controller
       $results = DB::select("SELECT p.*, SUM(b.amount) as totalAmt, COUNT(b.*) as backers FROM project as p LEFT JOIN project_backer as b ON p.id = b.project WHERE p.id = :project AND (status = 'ONGOING' OR status = 'COMPLETE') GROUP BY p.id", [
           'project' => $project,
       ]);
-      return response()->json($results[0]);
+      if (count($results) == 1) {
+        return response()->json($results[0]);
+      } else {
+        return response()->json([]);
+      }
     }
 
     /**
@@ -76,7 +80,7 @@ class ProjectController extends Controller
           'user' => $backer->member,
           'amount' => $backer->amount,
           'address' => ''
-        ))
+        ));
         app('App\Http\Controllers\TransactionController')->store($request, 'Debit');
       }
       DB::statement('COMMIT');
