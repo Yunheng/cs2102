@@ -20,21 +20,4 @@ class UserTransactionController extends Controller
       ]);
       return response()->json($results);
     }
-
-    /**
-     * URL route for creating a new transaction for a user
-     * POST /api/user/{userId}/transaction
-     */
-    public function store(Request $request, $user, $type = 'Credit') {
-      DB::statement('BEGIN TRANSACTION');
-      $results = DB::select("INSERT INTO \"transaction\" (code, type, \"user\") VALUES (random_string(12), :type, :user) RETURNING code", [
-        'type'  => $type,
-        'user' => $user
-      ]);
-      if ($type == 'Credit') {
-        app('App\Http\Controllers\ReceiptController')->store($request, $results[0]->code);
-      }
-      DB::statement('COMMIT');
-      return response()->json($results[0]);
-    }
 }

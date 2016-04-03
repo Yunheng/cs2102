@@ -14,9 +14,9 @@ class TransactionController extends Controller
    * URL route for creating a new user
    * POST /api/transaction
    */
-  public function store(Request $request) {
+  public function store(Request $request, $type = 'Credit') {
     $results = DB::select("INSERT INTO \"transaction\" (code, type, amount, \"user\") VALUES (random_string(12), :type, :amount, :user) RETURNING code", [
-      'type'  => 'Credit',
+      'type'  => $type,
       'amount' => $request->input('amount'),
       'user' => $request->input('user')
     ]);

@@ -72,7 +72,12 @@ class ProjectController extends Controller
       ]);
       $backers = DB::select("SELECT * FROM project_backer WHERE project = :project", ['project' => $project]);
       foreach($backers as $backer) {
-        app('App\Http\Controllers\UserTransactionController')->store($request, $backer->member, 'Debit');
+        $request->replace(array(
+          'user' => $backer->member,
+          'amount' => $backer->amount,
+          'address' => ''
+        ))
+        app('App\Http\Controllers\TransactionController')->store($request, 'Debit');
       }
       DB::statement('COMMIT');
       return response()->json($results);
