@@ -67,15 +67,21 @@ class ProjectController extends Controller
       if ($request->has('view')) {
         $view = $request->input('view');
       }
+
       switch($view) {
         case 'popular':
-          $results = DB::select("SELECT p.*, SUM(b.amount) AS totalAmt, COUNT(b.*) as backers, SUM(b.amount)/COUNT(b.*) AS AmtPerBacker FROM project as p LEFT JOIN project_backer as b ON p.id = b.project WHERE (status = 'ONGOING') GROUP BY p.id ORDER BY backers DESC, AmtPerBacker DESC LIMIT 4");
+          $results = DB::select("SELECT p.*, SUM(b.amount) AS totalAmt, COUNT(b.*) AS backers, SUM(b.amount)/COUNT(b.*) AS AmtPerBacker FROM project AS p LEFT JOIN project_backer AS b ON p.id = b.project WHERE (p.status = 'ONGOING') GROUP BY p.id ORDER BY backers DESC, AmtPerBacker DESC");
           break;
         case 'newest':
-          $results = DB::select("SELECT p.*, SUM(b.amount) as totalAmt, COUNT(b.*) as backers FROM project as p LEFT JOIN project_backer as b ON p.id = b.project WHERE (status = 'ONGOING') GROUP BY p.id ORDER BY p.date_created DESC LIMIT 4");
+          $results = DB::select("SELECT p.*, SUM(b.amount) AS totalAmt, COUNT(b.*) AS backers FROM project AS p LEFT JOIN project_backer AS b ON p.id = b.project WHERE (p.status = 'ONGOING') GROUP BY p.id ORDER BY p.date_created DESC");
+          break;
+        case 'search':
+          $results = DB::select("SELECT p.*, SUM(b.amount) AS totalAmt, COUNT(b.*) AS backers FROM project AS p LEFT JOIN project_backer AS b ON p.id = b.project WHERE (p.status = 'ONGOING' AND p.title LIKE :search) GROUP BY p.id ORDER BY p.date_close ASC", [
+            'search' => '%' + str_replace(' ', '%', $request->input('query')) + '%'
+          ]);
           break;
         default:
-          $results = DB::select("SELECT p.*, SUM(b.amount) as totalAmt, COUNT(b.*) as backers FROM project as p LEFT JOIN project_backer as b ON p.id = b.project WHERE (status = 'ONGOING') GROUP BY p.id ORDER BY p.date_close ASC");
+          $results = DB::select("SELECT p.*, SUM(b.amount) AS totalAmt, COUNT(b.*) AS backers FROM project AS p LEFT JOIN project_backer AS b ON p.id = b.project WHERE (p.status = 'ONGOING') GROUP BY p.id ORDER BY p.date_close ASC");
           break;
       }
       return response()->json($results);
