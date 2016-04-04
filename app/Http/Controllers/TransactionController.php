@@ -20,7 +20,9 @@ class TransactionController extends Controller
       'amount' => $request->input('amount'),
       'user' => $request->input('user')
     ]);
-    $result = app('App\Http\Controllers\ReceiptController')->store($request, $results[0]->code);
+    if ($type == 'Credit') {
+      $result = app('App\Http\Controllers\ReceiptController')->store($request, $results[0]->code);
+    }
     return $result;
   }
 
