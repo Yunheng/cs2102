@@ -30,18 +30,9 @@ class UserController extends Controller
      * GET /api/user/{username}
      */
     public function show($user) {
-      $results = DB::select("SELECT * FROM \"user\" WHERE username = :username", [
+      $results = DB::select("SELECT username, registered_date, address, avatar, email FROM \"user\" WHERE username = :username", [
           'username' => $user,
       ]);
-      return response()->json($results);
-    }
-
-    /**
-     * URL route for fetching a user
-     * GET /api/user/{username}
-     */
-    public function users() {
-      $results = DB::select("SELECT * FROM \"user\"");
       return response()->json($results);
     }
 
@@ -50,9 +41,8 @@ class UserController extends Controller
      * PUT /api/user/{username}
      */
     public function update(Request $request, $user) {
-      $results = DB::update("UPDATE \"user\" SET address = :address, avatar = :avatar, email = :email WHERE username = :username", [
+      $results = DB::update("UPDATE \"user\" SET address = :address, email = :email WHERE username = :username", [
           'address'   => $request->input('address'),
-          'avatar'    => $request->input('avatar'),
           'email'     => $request->input('email'),
           'username'  => $user
       ]);
