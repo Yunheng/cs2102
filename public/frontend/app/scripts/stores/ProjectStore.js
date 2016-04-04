@@ -15,7 +15,8 @@ var ProjectStore = reflux.createStore({
       projects: [],
       mostPopularProjects: [],
       newestProjects: [],
-      selectedProject: {}
+      selectedProject: {},
+      projMsg: ''
     });
   },
   retrieveUserProjects(user){
@@ -128,7 +129,8 @@ var ProjectStore = reflux.createStore({
         category: args.category
       }
     }).then(function(data){
-      
+      this.setState({projMsg: 'Changes saved!'});
+      window.setTimeout(AppStateAction.getHomePage, 2000);
     }.bind(this));
   },
   addNewProject(args){

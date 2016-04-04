@@ -98,6 +98,9 @@ var EditProjectPage = React.createClass({
             <input type="text" id="category"/>
           </div>
           <div className="form-line">
+            <div className="msg">{this.state.projMsg}</div>
+          </div>
+          <div className="form-line">
             <div className="cancel button" onClick={this.cancel}>Cancel</div>
             <div className="submit button" onClick={this.update}>Update Project</div>
           </div>
