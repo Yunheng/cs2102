@@ -15,7 +15,7 @@ class ProjectOwnerController extends Controller
      * GET /api/project/{projectId}/owner
      */
     public function index($project) {
-      $results = DB::select("SELECT * FROM \"project_owner\" WHERE project_owner.project = :project", [
+      $results = DB::select("SELECT o.*, u.username, u.last_login, u.address, u.registered_date, u.email FROM \"project_owner\" AS o, \"user\" AS u WHERE u.username = o.member AND project_owner.project = :project", [
         'project' => $project
       ]);
       return response()->json($results);
