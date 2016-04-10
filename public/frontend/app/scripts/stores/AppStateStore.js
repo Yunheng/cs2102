@@ -83,6 +83,11 @@ var AppStateStore = reflux.createStore({
     this.setState({
       currentPage: 'UserTransactions'
     })
+  },
+  getProjectManagement(){
+    this.setState({
+      currentPage: 'ProjectManagement'
+    })
   }
 
 });

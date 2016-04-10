@@ -4,6 +4,7 @@ var AppStateAction = reflux.createActions([
   'getSignupPage',
   'getLoginPage',
   'getUserManagement',
+  'getProjectManagement',
   'getUsers',
   'getHomePage',
   'getUserProjectsPage',

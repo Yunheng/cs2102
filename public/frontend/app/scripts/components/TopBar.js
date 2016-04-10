@@ -27,10 +27,19 @@ var TopBar = React.createClass({
         </div>
           :
         <div className="user-profile">
-          <div className="username"><span className="hello">Hello</span> <span className="name" onClick={this.viewUserProfile}>{this.state.userId}</span>!</div>
-          <div className="projects button" onClick={AppActions.getUserProjectsPage}>Manage Projects</div>
-          <div className="logout button" onClick={this.userLogout}>Logout</div>
-
+          {this.state.userId === 'admin' ?
+            <div className="user-profile">
+              <div className="user button" onClick={AppActions.getUserManagement}>Manage Users</div>
+              <div className="projects button" onClick={AppActions.getProjectManagement}>Manage Projects</div>
+              <div className="logout button" onClick={this.userLogout}>Logout</div>
+            </div>
+            :
+            <div className="user-profile">
+              <div className="username"><span className="hello">Hello</span> <span className="name" onClick={this.viewUserProfile}>{this.state.userId}</span>!</div>
+              <div className="projects button" onClick={AppActions.getUserProjectsPage}>Manage Projects</div>
+              <div className="logout button" onClick={this.userLogout}>Logout</div>
+            </div>
+          }
         </div>
         }
       </div>

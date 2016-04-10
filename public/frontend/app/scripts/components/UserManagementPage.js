@@ -7,9 +7,10 @@ import UserManagementStore from '../stores/UserManagementStore';
 var UserManagementPage = React.createClass({
 
   mixins: [StateMixin.connect(UserManagementStore)],
+  deleteUser(){
 
+  },
   render: function(){
-    console.log('page', this.state);
     if(this.state && this.state.users && this.state.users.length > 0) {
       return (
         <div className="UserManagementPage Page">
@@ -21,6 +22,7 @@ var UserManagementPage = React.createClass({
               <th>email</th>
               <th>address</th>
               <th>registered_date</th>
+              <th>delete?</th>
             </tr>
             </thead>
             <tbody>
@@ -31,9 +33,10 @@ var UserManagementPage = React.createClass({
                     <th>{user.email}</th>
                     <th>{user.address}</th>
                     <th>{user.registered_date}</th>
+                    <th onClick={this.deleteUser}>[x]</th>
                   </tr>
                 );
-              })}
+              }.bind(this))}
             </tbody>
           </table>
         </div>

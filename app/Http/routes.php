@@ -55,6 +55,8 @@ Route::group(['prefix' => 'api'], function () {
   Route::resource('user.backing', 'UserBackingController',
     ['only' => ['index']]);
 
+  Route::get('/users', 'UserController@users');
+
   Route::post('/user/login', 'UserController@login');
   Route::post('/user/password', 'UserController@changePassword');
 });

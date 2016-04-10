@@ -9,6 +9,7 @@ var ViewUserPage = require('./components/ViewUserPage');
 var EditUserPage = require('./components/EditUserPage');
 var FundProjectPage = require('./components/FundProjectPage');
 var UserTransactionsPage = require('./components/ViewTransactionPage');
+var ProjectManagementPage = require('./components/ProjectManagementPage');
 import actions from './actions/AppStateAction';
 import TopBar from './components/TopBar.js';
 import AppStateStore from './stores/AppStateStore.js';
@@ -45,6 +46,7 @@ var App = React.createClass({
       case 'FundProject': return <FundProjectPage/>;
       case 'BrowseProjects': return <BrowseProjectsPage/>;
       case 'UserTransactions': return <UserTransactionsPage/>;
+      case 'ProjectManagement': return <ProjectManagementPage/>;
       default: return <div className="error">Oops, something went wrong!</div>;
     }
   }

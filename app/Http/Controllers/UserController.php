@@ -36,6 +36,11 @@ class UserController extends Controller
       return response()->json($results);
     }
 
+    public function users() {
+        $results = DB::select("SELECT * FROM \"user\"");
+        return response()->json($results);
+    }
+
     /**
      * URL route for updating an existing user
      * PUT /api/user/{username}
