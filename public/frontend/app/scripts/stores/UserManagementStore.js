@@ -50,6 +50,14 @@ var UserManagementStore = reflux.createStore({
       console.log(users);
       this.setState({users: users});
     }.bind(this));
+  },
+  deleteUser(username){
+    $.ajax({
+      type: 'DELETE',
+      url: '/api/user/' + username
+    }).done(function(data){
+      fn(true);
+    });
   }
 });
 
